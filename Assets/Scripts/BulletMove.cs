@@ -24,7 +24,7 @@ public class BulletMove : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             enemyBase = collision.gameObject.GetComponent<EnemyBase>();
-            enemyBase.GetDamage(_bulletDamage);
+            enemyBase.TakeDamage(_bulletDamage);
         }     
     }
 

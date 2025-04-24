@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBase : MonoBehaviour
+public abstract class EnemyBase : MonoBehaviour
 {
-    [SerializeField] float m_health = 100f;
-    [SerializeField] private int distance = 10;
+    [SerializeField] private int distance = 20;
     [SerializeField] protected GameObject bullet;
-    [SerializeField] private GameObject spawnBullet;
 
     private GameObject player;
     private float timerShoot;
@@ -25,6 +23,9 @@ public class EnemyBase : MonoBehaviour
 
         if (Vector3.Distance(player.transform.position, transform.position) < distance)
         {
+            Vector3 direction = (player.transform.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
             if (timerShoot > timeBetweenShoot)
             {
                 Shoot();
@@ -33,17 +34,7 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    void Shoot()
-    {
-        Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
-    }
+    public abstract void Shoot();
 
-    public void GetDamage(float damage)
-    {
-        m_health -= damage;
-        if (m_health < 0)
-        {
-            Destroy(gameObject);
-        }
-    }
+    public abstract void TakeDamage(float damage);
 }
