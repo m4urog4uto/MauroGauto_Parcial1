@@ -25,7 +25,7 @@ public abstract class EnemyBase : MonoBehaviour
     {
         timerShoot += Time.deltaTime;
 
-        if (Vector3.Distance(player.transform.position, transform.position) < distance)
+        if (player != null && Vector3.Distance(player.transform.position, transform.position) < distance)
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(direction);

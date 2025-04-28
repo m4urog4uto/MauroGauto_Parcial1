@@ -23,11 +23,11 @@ public class BulletEnemy : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        // if (collision.gameObject.tag == "Player")
-        // {
-        //     playerBase = collision.gameObject.GetComponent<PlayerBase>();
-        //     playerBase.TakeDamage(_bulletDamage);
-        // }
+        if (collision.gameObject.tag == "Player")
+        {
+            playerBase = collision.gameObject.GetComponent<PlayerBase>();
+            playerBase.TakeDamage(_bulletDamage);
+        }
     }
 
 }

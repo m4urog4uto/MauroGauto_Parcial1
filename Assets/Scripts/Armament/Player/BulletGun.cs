@@ -29,7 +29,7 @@ public class BulletGun : MonoBehaviour
         {
             enemyBase = collision.gameObject.GetComponent<EnemyBase>();
             enemyBase.TakeDamage(_bulletDamage);
-            ScoreManager.Instance.AddScore(collision.gameObject.GetComponent<EnemyBase>().Score);
+            GameManager.Instance.AddScore(collision.gameObject.GetComponent<EnemyBase>().Score);
         }
         else if (collision.gameObject.tag == "ShieldEnemy")
         {
