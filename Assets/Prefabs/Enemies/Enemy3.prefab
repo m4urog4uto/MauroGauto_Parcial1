@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4601489487484155924}
   - component: {fileID: 6273930725211401133}
   - component: {fileID: 2065502859517597489}
-  - component: {fileID: 2018213552440200614}
+  - component: {fileID: 830265700785861386}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Enemy
@@ -61,7 +61,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.71760315, z: -0, w: 0.6964523}
   m_LocalPosition: {x: 1.47, y: 1.37, z: -2.01}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.3347, y: 2.3347, z: 2.3347}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4493694328221092798}
@@ -140,7 +140,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2018213552440200614
+--- !u!114 &830265700785861386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,13 +149,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3839710344799017329}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea46ec6e51d3e047bb83b2b6021615e, type: 3}
+  m_Script: {fileID: 11500000, guid: f719efd46418a2c45a4602db51dab055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_health: 100
-  distance: 10
-  bullet: {fileID: 2146454452442162795, guid: bda856dd032b6ab49bd2a56b1dcbeb7b, type: 3}
-  spawnBullet: {fileID: 708669573031638036}
+  distance: 20
+  bullet: {fileID: 800767347057109625, guid: 092eb9dcf863cb144bc6e2610c788c8a, type: 3}
+  health: 200
+  granadeSpawn: {fileID: 708669573031638036}
+  granadeEnemy: {fileID: 5133543181020152144, guid: 092eb9dcf863cb144bc6e2610c788c8a, type: 3}
 --- !u!1 &4605798613418225084
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,14 +184,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4605798613418225084}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.51, y: 0, z: 0.37}
-  m_LocalScale: {x: 0.068828, y: 0.06, z: 1}
+  m_LocalRotation: {x: -0.26290008, y: -0.000000059604638, z: 0.000000029802319, w: 0.9648231}
+  m_LocalPosition: {x: -0.51, y: 0.473, z: 0.357}
+  m_LocalScale: {x: 0.116890594, y: 0.101898, z: 1.6983}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8489008754298205160}
   m_Father: {fileID: 4425108231400811149}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -30.484, y: 0, z: 0}
 --- !u!33 &3884773477576445353
 MeshFilter:
   m_ObjectHideFlags: 0

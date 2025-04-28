@@ -7,13 +7,17 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] private int distance = 20;
     [SerializeField] protected GameObject bullet;
 
+    protected int score;
+
+    public int Score => score;
+
     private GameObject player;
     private float timerShoot;
     private float timeBetweenShoot = 2;
 
-    // Start is called before the first frame update
-    void Start()
+    protected virtual void Awake()
     {
+        score = 1;
         player = GameObject.FindWithTag("Player");
     }
 
@@ -25,7 +29,7 @@ public abstract class EnemyBase : MonoBehaviour
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
+            transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y + 5f, 0f);
             if (timerShoot > timeBetweenShoot)
             {
                 Shoot();

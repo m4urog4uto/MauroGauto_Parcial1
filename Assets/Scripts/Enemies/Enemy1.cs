@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy1 : EnemyBase
 {
-    [SerializeField] float m_health = 100f;
+    [SerializeField] float health = 100f;
 
     [SerializeField] private GameObject spawnBullet1;
 
@@ -15,8 +15,8 @@ public class Enemy1 : EnemyBase
 
     public override void TakeDamage(float damage)
     {
-        m_health -= damage;
-        if (m_health < 0)
+        health -= damage;
+        if (health < 0)
         {
             Destroy(gameObject);
         }

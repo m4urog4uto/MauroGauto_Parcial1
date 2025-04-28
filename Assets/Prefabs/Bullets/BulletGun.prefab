@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1456226736490022498}
   - component: {fileID: 5974673629771817345}
   - component: {fileID: 7704452009535289923}
-  - component: {fileID: 568667011301706889}
+  - component: {fileID: 4029976380755103597}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: BulletGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,8 +63,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 3.559585}
-  m_Center: {x: 0, y: 0, z: 0.004425103}
+  m_Size: {x: 1, y: 1, z: 1.0686326}
+  m_Center: {x: 0, y: 0, z: 0.011320547}
 --- !u!23 &5974673629771817345
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: da7408bddf298694188d34a548d8b3c3, type: 2}
+  - {fileID: 2100000, guid: 0e4fdc0b7e463a94a96c9b5757929791, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 52
   m_CollisionDetection: 1
---- !u!114 &568667011301706889
+--- !u!114 &4029976380755103597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,8 +143,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2146454452442162795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d89f2e7dfc059d546a4c076c82f67478, type: 3}
+  m_Script: {fileID: 11500000, guid: c3affd7ec0fb28c448291f8e35a29bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletSpeed: 30
-  _bulletDamage: 5
+  _bulletDamage: 10
+  _bulletSpeed: 10

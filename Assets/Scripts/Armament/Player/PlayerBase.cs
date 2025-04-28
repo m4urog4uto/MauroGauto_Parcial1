@@ -4,26 +4,15 @@ using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
-    [SerializeField] LayerMask m_floorMask;
-    [SerializeField] Transform m_bulletSpawner;
-    [SerializeField] GameObject m_bullet;
-
     CharacterController _controller;
-    Rigidbody m_playerRigidBody;
 
+    float health = 100f;
     float _posV;
     float _posH;
     float _gravity = -9.8f;
-    float m_camRayLenght = 100f;
-    float m_coldDown = 0.2f;
-    float m_coldDownTimer;
 
     Vector3 _playerVelocity;
     Vector3 _spherePhysics;
-
-    Ray m_camRay;
-    RaycastHit m_floorHit;
-    Vector3 m_playerToMouse;
 
     [SerializeField] float _speed = 0;
 
@@ -31,21 +20,12 @@ public class PlayerBase : MonoBehaviour
     void Awake()
     {
         _controller = GetComponent<CharacterController>();
-        m_playerRigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        m_coldDownTimer += Time.deltaTime;
-
         Move();
-        Turning();
-
-        if(Input.GetButton("Fire1") && m_coldDownTimer > m_coldDown)
-        {
-            Shoot();
-        }
     }
 
     void Move()
@@ -71,22 +51,12 @@ public class PlayerBase : MonoBehaviour
         return Physics.CheckSphere(_spherePhysics, 0.3f);
     }
 
-    void Turning()
+    public void TakeDamage(float damage)
     {
-        m_camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(m_camRay, out m_floorHit, m_camRayLenght, m_floorMask))
+        health -= damage;
+        if (health < 0)
         {
-            m_playerToMouse = m_floorHit.point - transform.position;
-            m_playerToMouse.y = 0f;
-
-            Quaternion newRotation = Quaternion.LookRotation(m_playerToMouse, Vector3.up);
-            m_playerRigidBody.MoveRotation(newRotation);
+            Destroy(gameObject);
         }
-    }
-
-    void Shoot()
-    {
-        Instantiate(m_bullet, m_bulletSpawner.position, m_bulletSpawner.rotation);
     }
 }
