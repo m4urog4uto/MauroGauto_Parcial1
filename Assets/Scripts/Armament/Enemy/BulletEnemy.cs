@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class BulletEnemy : MonoBehaviour
 {
-    public float _bulletDamage;
+    public int _bulletDamage = 20;
     public float _bulletSpeed;
+    bool hasCollided = false;
 
     PlayerBase playerBase;
     Rigidbody rb;
-
-    // Start is called before the first frame update
-    public void Start()
+    public void Awake()
     {
         rb = GetComponent<Rigidbody>();
 
@@ -25,8 +24,11 @@ public class BulletEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            if (hasCollided) return;
+            hasCollided = true;
             playerBase = collision.gameObject.GetComponent<PlayerBase>();
             playerBase.TakeDamage(_bulletDamage);
+            Destroy(gameObject);
         }
     }
 

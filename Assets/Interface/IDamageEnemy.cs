@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public interface IEnemyAttributes
+public interface IDamageEnemy
 {
-    // public void TakeDamage(int valueDamage);
+    public void TakeDamage(float valueDamage);
 }

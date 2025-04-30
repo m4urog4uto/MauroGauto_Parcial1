@@ -8,6 +8,7 @@ TagManager:
   - Wall1
   - Enemy
   - ShieldEnemy
+  - BunkerEnemy
   layers:
   - Default
   - TransparentFX

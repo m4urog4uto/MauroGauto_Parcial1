@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldEnemy : MonoBehaviour
+public class ShieldEnemy : MonoBehaviour, IDamageEnemy
 {
     [SerializeField] float shield = 100f;
     // Start is called before the first frame update

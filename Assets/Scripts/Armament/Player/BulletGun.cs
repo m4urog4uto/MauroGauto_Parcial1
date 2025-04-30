@@ -1,16 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class BulletGun : MonoBehaviour
 {
     public float _bulletDamage;
     public float _bulletSpeed;
 
-    EnemyBase enemyBase;
-    ShieldEnemy shieldEnemy;
     Rigidbody rb;
 
     // Start is called before the first frame update
@@ -25,19 +19,12 @@ public class BulletGun : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        IDamageEnemy damageEnemy = collision.gameObject.GetComponent<IDamageEnemy>();
+        if (damageEnemy != null)
         {
-            enemyBase = collision.gameObject.GetComponent<EnemyBase>();
-            enemyBase.TakeDamage(_bulletDamage);
-            GameManager.Instance.AddScore(collision.gameObject.GetComponent<EnemyBase>().Score);
+            damageEnemy.TakeDamage(_bulletDamage);
+            Destroy(gameObject);
         }
-        else if (collision.gameObject.tag == "ShieldEnemy")
-        {
-            shieldEnemy = collision.gameObject.GetComponent<ShieldEnemy>();
-            shieldEnemy.TakeDamage(_bulletDamage);
-        }
-
-        Destroy(gameObject);
     }
 
 }

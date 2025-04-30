@@ -6,7 +6,7 @@ public class ScoreText : MonoBehaviour, IObserver
     [SerializeField] private TextMeshProUGUI scoreText;
     public void OnNotify(int score)
     {
-        scoreText.text = score.ToString();
+        scoreText.text = $"Score: {score.ToString()}";
     }
 
     private void Start()

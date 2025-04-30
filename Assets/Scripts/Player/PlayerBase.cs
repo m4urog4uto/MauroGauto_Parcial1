@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class PlayerBase : MonoBehaviour
 {
     CharacterController _controller;
+    PlayerRespawn playerRespawn;
 
     float health = 100f;
+    int lives = 3;
     float _posV;
     float _posH;
     float _gravity = -9.8f;
@@ -20,6 +22,7 @@ public class PlayerBase : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        playerRespawn = GetComponent<PlayerRespawn>();
         _controller = GetComponent<CharacterController>();
     }
 
@@ -52,18 +55,37 @@ public class PlayerBase : MonoBehaviour
         return Physics.CheckSphere(_spherePhysics, 0.3f);
     }
 
-    public void TakeDamage(float damage)
+    public void RemoveLive()
     {
-        health -= damage;
-        if (health < 0)
+        if (lives != 0)
+        {
+            playerRespawn.Respawn();
+            health = 100f;
+            lives -= 1;
+        }
+        else
         {
             Destroy(gameObject);
             SceneManager.LoadScene("Lose");
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            RemoveLive();
+        }
+    }
+
     public float GetHealth()
     {
         return health;
+    }
+
+    public float GetLives()
+    {
+        return lives;
     }
 }

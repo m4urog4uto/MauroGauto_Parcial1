@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 20
   bullet: {fileID: 2146454452442162795, guid: bda856dd032b6ab49bd2a56b1dcbeb7b, type: 3}
-  m_health: 130
+  health: 120
   spawnBullet1: {fileID: 708669573031638036}
   spawnBullet2: {fileID: 4865054994552741433}
 --- !u!1 &4605798613418225084

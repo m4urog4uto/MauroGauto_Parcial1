@@ -12,8 +12,8 @@ public class Shotgun : MonoBehaviour, IWeapon
 
     ObjectPool<Shotgun> poolShotgun;
 
-    float timerShoot = 0;
-    float timeBetween = 1;
+    private float timerShoot = 0;
+    private float timeBetweenShoot = 1;
 
     void Awake()
     {
@@ -29,9 +29,10 @@ public class Shotgun : MonoBehaviour, IWeapon
     {
         timerShoot += Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && timerShoot > timeBetween && parent != null && spawnBullet != null && bullet != null)
+        if (Input.GetButton("Fire1") && timerShoot > timeBetweenShoot && parent != null && spawnBullet != null && bullet != null)
         {
             Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
+            timerShoot = 0f;
         }
     }
     public void PickupWeapon(Transform spawnWeapon)

@@ -7,17 +7,11 @@ using UnityEngine.AI;
 public class TurningController : MonoBehaviour
 {
     [SerializeField] LayerMask floorMask;
-    Rigidbody playerRigidBody;
     float camRayLenght = 100f;
 
     Ray camRay;
     RaycastHit floorHit;
     Vector3 playerToMouse;
-
-    void Awake()
-    {
-        playerRigidBody = GetComponent<Rigidbody>();
-    }
 
     void FixedUpdate()
     {
@@ -42,7 +36,7 @@ public class TurningController : MonoBehaviour
                 playerToMouse.y = 0f;
 
                 Quaternion newRotation = Quaternion.LookRotation(playerToMouse, Vector3.up);
-                playerRigidBody.MoveRotation(newRotation);
+                transform.rotation = newRotation;
             }
 
         }

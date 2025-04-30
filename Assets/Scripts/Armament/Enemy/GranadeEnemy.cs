@@ -12,6 +12,8 @@ public class GranadeEnemy : MonoBehaviour
 
     // TODO: Ta mal, granada es un script aparte
     [SerializeField] private GameObject granade;
+    bool hasCollided = false;
+
 
 
 
@@ -31,9 +33,12 @@ public class GranadeEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            if (hasCollided) return;
+            hasCollided = true;
             playerBase = collision.gameObject.GetComponent<PlayerBase>();
             playerBase.TakeDamage(_bulletDamage);
-        }     
+            Destroy(gameObject); 
+        }
     }
 
     public void Shoot(GameObject granadeSpawn)

@@ -20,7 +20,7 @@ public class TurretMove : MonoBehaviour
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Euler(lookRotation.eulerAngles.x + 5f, lookRotation.eulerAngles.y + 5f, 0f);
+            transform.rotation = Quaternion.Euler(lookRotation.eulerAngles.x, lookRotation.eulerAngles.y, 0f);
         }
     }
 }
