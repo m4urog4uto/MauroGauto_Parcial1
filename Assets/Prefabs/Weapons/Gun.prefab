@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8577632712784494601}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftHandPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9123508081129654478}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3882006566521370701}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightHandPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,15 +103,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.13
+      value: 1.94
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.13
+      value: 1.94
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.13
+      value: 1.94
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
       propertyPath: m_LocalPosition.x
@@ -157,9 +157,61 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6992748586679687696, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5734688789650243381, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -3960406315205206229, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -3657037904607541596, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1909969534624626228, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -14934307154747163, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 563172253148384521, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
       propertyPath: m_Name
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167436263516997769, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773764914502647527, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525665226822001013, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438554552437124225, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616513027652759119, guid: 414b729b29ae3f44896d1a61cac6ca12, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -210,8 +262,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0408223, y: 0.1462232, z: 0.17231065}
-  m_Center: {x: -0.0014945514, y: -0.02094727, z: -0.0238699}
+  m_Size: {x: 0.24299647, y: 0.3075646, z: 0.17231064}
+  m_Center: {x: 0.012874964, y: 0.05972358, z: -0.023869898}
 --- !u!114 &6804344018506097225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,5 +277,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 6804344018506097225}
-  bulletGun: {fileID: 2146454452442162795, guid: 2b3e75d2797cfc1499b5e94ed20c0143, type: 3}
+  bulletPistol: {fileID: 0}
   spawnBullet: {fileID: 9123508081129654478}

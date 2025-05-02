@@ -13,7 +13,8 @@ public class Shotgun : MonoBehaviour, IWeapon
     ObjectPool<Shotgun> poolShotgun;
 
     private float timerShoot = 0;
-    private float timeBetweenShoot = 2;
+    private float timeBetweenShoot = 1;
+    private bool isPickupWeapon = false;
 
     void Awake()
     {
@@ -28,21 +29,15 @@ public class Shotgun : MonoBehaviour, IWeapon
     void FixedUpdate()
     {
         timerShoot += Time.deltaTime;
-
-        if (Input.GetButton("Fire1") && timerShoot > timeBetweenShoot && parent != null && spawnBullet != null && bullet != null)
+        if (Input.GetButton("Fire1") && timerShoot > timeBetweenShoot && isPickupWeapon && spawnBullet != null && bullet != null)
         {
             Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
             timerShoot = 0f;
         }
     }
-    public void PickupWeapon(Transform spawnWeapon)
+    public void isAiming(bool value)
     {
-        Shotgun newWeapon = poolShotgun.Get();
-        newWeapon.transform.SetParent(spawnWeapon);
-        newWeapon.transform.localPosition = Vector3.zero;
-        newWeapon.transform.localRotation = Quaternion.identity;
-
-        // Destroy(gameObject);
+        isPickupWeapon = value;
     }
 
     
@@ -66,5 +61,15 @@ public class Shotgun : MonoBehaviour, IWeapon
     private void DestroyItem(Shotgun weapon)
     {
         Destroy(weapon);
+    }
+
+    public void PickupWeapon(Transform spawnPoint)
+    {
+        // Shotgun newWeapon = poolShotgun.Get();
+        // newWeapon.transform.SetParent(spawnWeapon);
+        // newWeapon.transform.localPosition = Vector3.zero;
+        // newWeapon.transform.localRotation = Quaternion.identity;
+
+        // Destroy(gameObject);
     }
 }

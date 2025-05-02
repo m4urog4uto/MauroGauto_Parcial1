@@ -10,11 +10,12 @@ public class PickupWeaponController : PlayerBase
     [SerializeField] private LayerMask weaponMask;
     private RaycastHit topRayHitInfo;
 
-    private IWeapon weapon;
+    private Pistol pistol;
+    private Shotgun shotgun;
 
-    [SerializeField] private Transform aimingWeaponSpawn;
-
-    private bool isAiming = false;
+    [Header("Aiming Weapons")]
+    [SerializeField] private Transform aimingShotgunSpawn;
+    [SerializeField] private Transform aimingPistolSpawn;
 
     [Header("Right Hand Target")]
     [SerializeField] private TwoBoneIKConstraint rightHandIK;
@@ -35,23 +36,20 @@ public class PickupWeaponController : PlayerBase
 
     void Update()
     {
-        if (weapon != null)
+        leftHandIK.weight = 0f;
+        if (shotgun != null)
         {
-            // weapon.transform.parent = aimingWeaponSpawn.transform;
-            // weapon.transform.position = aimingWeaponSpawn.position;
-            // weapon.transform.rotation = aimingWeaponSpawn.rotation;
+            if (aimingPistolSpawn != null && aimingPistolSpawn.childCount > 0)
+            {
+                Destroy(aimingPistolSpawn.GetChild(0).gameObject);
+            }
 
-            weapon.PickupWeapon(aimingWeaponSpawn);
-            
-            isAiming = true;
+            shotgun.transform.SetParent(aimingShotgunSpawn.transform);
+            shotgun.transform.position = aimingShotgunSpawn.position;
+            shotgun.transform.rotation = aimingShotgunSpawn.rotation;
+
             SetAnimationIsArmed(true);
-        }
-        if (!isAiming)
-        {
-            leftHandIK.weight = 0f;
-        }
-        else
-        {
+
             leftHandIK.weight = 1f;
             leftHandTarget.position = IKLeftHandPosShotgun.position;
             leftHandTarget.rotation = IKLeftHandPosShotgun.rotation;
@@ -59,6 +57,29 @@ public class PickupWeaponController : PlayerBase
             rightHandIK.weight = 1f;
             rightHandTarget.position = IKRightHandPosShotgun.position;
             rightHandTarget.rotation = IKRightHandPosShotgun.rotation;
+            shotgun.isAiming(true);
+        }
+        else if (pistol != null)
+        {
+            if (aimingShotgunSpawn != null && aimingShotgunSpawn.childCount > 0)
+            {
+                Destroy(aimingShotgunSpawn.GetChild(0).gameObject);
+            }
+
+            pistol.transform.parent = aimingPistolSpawn.transform;
+            pistol.transform.position = aimingPistolSpawn.position;
+            pistol.transform.rotation = aimingPistolSpawn.rotation;
+
+            SetAnimationIsArmed(true);
+
+            leftHandIK.weight = 1f;
+            leftHandTarget.position = IKRightHandPosPistol.position;
+            leftHandTarget.rotation = IKRightHandPosPistol.rotation;
+
+            rightHandIK.weight = 1f;
+            rightHandTarget.position = IKRightHandPosPistol.position;
+            rightHandTarget.rotation = IKRightHandPosPistol.rotation;
+            pistol.isAiming(true);
         }
     }
 
@@ -80,7 +101,8 @@ public class PickupWeaponController : PlayerBase
     {
         if (topRayHitInfo.collider != null)
         {
-            weapon = topRayHitInfo.transform.gameObject.GetComponent<IWeapon>();
+            shotgun = topRayHitInfo.transform.gameObject.GetComponent<Shotgun>();
+            pistol = topRayHitInfo.transform.gameObject.GetComponent<Pistol>();
         }
     }
 }

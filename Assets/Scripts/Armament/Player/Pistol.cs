@@ -10,9 +10,10 @@ public class Pistol : MonoBehaviour, IWeapon
     [SerializeField] private Transform spawnBullet;
     Transform parent;
     ObjectPool<Pistol> poolPistol;
+    private bool isPickupWeapon = false;
 
-    // float timerShoot = 0;
-    // float timeBetween = 0.4f;
+    float timerShoot = 0;
+    float timeBetween = 0.4f;
 
     void Awake()
     {
@@ -31,11 +32,16 @@ public class Pistol : MonoBehaviour, IWeapon
 
         //  && timerShoot > timeBetween CON ESTA CONDICION NO ESTARIA DISPARANDO
 
-        if (Input.GetButton("Fire1") && parent != null && spawnBullet != null && bulletPistol != null)
+        if (Input.GetButton("Fire1") && isPickupWeapon && spawnBullet != null && bulletPistol != null)
         {
             Instantiate(bulletPistol, spawnBullet.transform.position, spawnBullet.transform.rotation);
             // timerShoot = 0f;
         }
+    }
+
+    public void isAiming(bool value)
+    {
+        isPickupWeapon = value;
     }
 
     public void PickupWeapon(Transform spawnWeapon)
@@ -45,9 +51,10 @@ public class Pistol : MonoBehaviour, IWeapon
         // newWeapon.transform.localPosition = Vector3.zero;
         // newWeapon.transform.localRotation = Quaternion.identity;
 
-        newWeapon.transform.parent = spawnWeapon.transform;
-        newWeapon.transform.position = spawnWeapon.position;
-        newWeapon.transform.rotation = spawnWeapon.rotation;
+        transform.parent = spawnWeapon.transform;
+
+        transform.position = spawnWeapon.position;
+        transform.rotation = spawnWeapon.rotation;
     }
 
     private Pistol CreateItem()
