@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public abstract class EnemyBase : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] private float health = 100;
     [SerializeField] private int distance = 20;
     [SerializeField] int attackMovementDistance = 10;
+
+    public Animator animator;
 
     protected int score;
 
@@ -19,6 +22,18 @@ public abstract class EnemyBase : MonoBehaviour
     private float timeBetweenShoot = 2;
     
     private float playerAndEnemyDistance;
+
+    [Header("Right Hand Target")]
+    [SerializeField] private TwoBoneIKConstraint rightHandIK;
+    [SerializeField] private Transform rightHandTarget;
+
+    [Header("Left Hand Target")]
+    [SerializeField] private TwoBoneIKConstraint leftHandIK;
+    [SerializeField] private Transform leftHandTarget;
+
+    [Header("IK Rifle Hands Target")]
+    [SerializeField] private Transform IKRightHandPosRifle;
+    [SerializeField] private Transform IKLeftHandPosRifle;
 
     Dictionary<int, GameObject> pickupSupportDictionary = new Dictionary<int, GameObject>();
 
@@ -44,7 +59,16 @@ public abstract class EnemyBase : MonoBehaviour
         };
     }
 
-    protected virtual void Update()
+    void Update()
+    {
+        leftHandTarget.position = IKLeftHandPosRifle.position;
+        leftHandTarget.rotation = IKLeftHandPosRifle.rotation;
+
+        rightHandTarget.position = IKRightHandPosRifle.position;
+        rightHandTarget.rotation = IKRightHandPosRifle.rotation;
+    }
+
+    protected virtual void FixedUpdate()
     {
         timerShoot += Time.deltaTime;
 
@@ -56,11 +80,16 @@ public abstract class EnemyBase : MonoBehaviour
             {
                 Vector3 direction = (player.transform.position - transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y + 5f, 0f);
+                transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
 
                 if (playerAndEnemyDistance > attackMovementDistance)
                 {
-                    transform.Translate(Vector3.forward * Time.deltaTime);
+                    animator.SetBool("isRunning", true);
+                    transform.Translate(Vector3.forward * Time.deltaTime * 3f);
+                }
+                else
+                {
+                    animator.SetBool("isRunning", false);
                 }
                 if (timerShoot > timeBetweenShoot)
                 {

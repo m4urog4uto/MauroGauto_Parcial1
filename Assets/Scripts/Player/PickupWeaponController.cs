@@ -73,8 +73,8 @@ public class PickupWeaponController : PlayerBase
             SetAnimationIsArmed(true);
 
             leftHandIK.weight = 1f;
-            leftHandTarget.position = IKRightHandPosPistol.position;
-            leftHandTarget.rotation = IKRightHandPosPistol.rotation;
+            leftHandTarget.position = IKLeftHandPosPistol.position;
+            leftHandTarget.rotation = IKLeftHandPosPistol.rotation;
 
             rightHandIK.weight = 1f;
             rightHandTarget.position = IKRightHandPosPistol.position;

@@ -28,7 +28,7 @@ public class TurningController : MonoBehaviour
             {
                 Vector3 direction = (floorHit.transform.position - transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
+                transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y - 28f, 0f);
             }
             else
             {

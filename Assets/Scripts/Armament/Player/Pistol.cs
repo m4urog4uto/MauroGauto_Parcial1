@@ -12,8 +12,8 @@ public class Pistol : MonoBehaviour, IWeapon
     ObjectPool<Pistol> poolPistol;
     private bool isPickupWeapon = false;
 
-    float timerShoot = 0;
-    float timeBetween = 0.4f;
+    private float timerShoot = 0;
+    private float timeBetweenShoot = 1;
 
     void Awake()
     {
@@ -28,14 +28,14 @@ public class Pistol : MonoBehaviour, IWeapon
 
     void FixedUpdate()
     {
-        // timerShoot += Time.deltaTime;
+        timerShoot += Time.deltaTime;
 
         //  && timerShoot > timeBetween CON ESTA CONDICION NO ESTARIA DISPARANDO
 
-        if (Input.GetButton("Fire1") && isPickupWeapon && spawnBullet != null && bulletPistol != null)
+        if (Input.GetButton("Fire1") && timerShoot > timeBetweenShoot && isPickupWeapon && spawnBullet != null && bulletPistol != null)
         {
             Instantiate(bulletPistol, spawnBullet.transform.position, spawnBullet.transform.rotation);
-            // timerShoot = 0f;
+            timerShoot = 0f;
         }
     }
 

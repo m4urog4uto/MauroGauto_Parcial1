@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 5986980103461539488}
   m_Layer: 0
   m_Name: Enemy3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +82,13 @@ MonoBehaviour:
   health: 100
   distance: 50
   attackMovementDistance: 30
+  animator: {fileID: 0}
+  rightHandIK: {fileID: 0}
+  rightHandTarget: {fileID: 0}
+  leftHandIK: {fileID: 0}
+  leftHandTarget: {fileID: 0}
+  IKRightHandPosRifle: {fileID: 0}
+  IKLeftHandPosRifle: {fileID: 0}
   granadeSpawn: {fileID: 4171406797095748906}
 --- !u!1001 &2280044738566328890
 PrefabInstance:
