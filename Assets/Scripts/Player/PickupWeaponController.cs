@@ -1,5 +1,6 @@
 using UnityEngine.Animations.Rigging;
 using UnityEngine;
+using System;
 
 public class PickupWeaponController : PlayerBase
 {
@@ -25,62 +26,42 @@ public class PickupWeaponController : PlayerBase
     [SerializeField] private TwoBoneIKConstraint leftHandIK;
     [SerializeField] private Transform leftHandTarget;
 
-    [Header("IK Shotgun Hands Target")]
-    [SerializeField] private Transform IKRightHandPosShotgun;
-    [SerializeField] private Transform IKLeftHandPosShotgun;
-
-    [Header("IK Pistol Hands Target")]
-    [SerializeField] private Transform IKRightHandPosPistol;
-    [SerializeField] private Transform IKLeftHandPosPistol;
-
 
     void Update()
     {
         leftHandIK.weight = 0f;
         if (shotgun != null)
         {
-            if (aimingPistolSpawn != null && aimingPistolSpawn.childCount > 0)
-            {
-                Destroy(aimingPistolSpawn.GetChild(0).gameObject);
-            }
+            DestroyPreviousWeapon(aimingPistolSpawn);
 
-            shotgun.transform.SetParent(aimingShotgunSpawn.transform);
-            shotgun.transform.position = aimingShotgunSpawn.position;
-            shotgun.transform.rotation = aimingShotgunSpawn.rotation;
+            shotgun.PickupWeapon(aimingShotgunSpawn, leftHandTarget, rightHandTarget);
 
-            SetAnimationIsArmed(true);
-
-            leftHandIK.weight = 1f;
-            leftHandTarget.position = IKLeftHandPosShotgun.position;
-            leftHandTarget.rotation = IKLeftHandPosShotgun.rotation;
-
-            rightHandIK.weight = 1f;
-            rightHandTarget.position = IKRightHandPosShotgun.position;
-            rightHandTarget.rotation = IKRightHandPosShotgun.rotation;
-            shotgun.isAiming(true);
+            ActivateAnimations();
         }
         else if (pistol != null)
         {
-            if (aimingShotgunSpawn != null && aimingShotgunSpawn.childCount > 0)
-            {
-                Destroy(aimingShotgunSpawn.GetChild(0).gameObject);
-            }
+            DestroyPreviousWeapon(aimingShotgunSpawn);
 
-            pistol.transform.parent = aimingPistolSpawn.transform;
-            pistol.transform.position = aimingPistolSpawn.position;
-            pistol.transform.rotation = aimingPistolSpawn.rotation;
-
-            SetAnimationIsArmed(true);
-
-            leftHandIK.weight = 1f;
-            leftHandTarget.position = IKLeftHandPosPistol.position;
-            leftHandTarget.rotation = IKLeftHandPosPistol.rotation;
-
-            rightHandIK.weight = 1f;
-            rightHandTarget.position = IKRightHandPosPistol.position;
-            rightHandTarget.rotation = IKRightHandPosPistol.rotation;
-            pistol.isAiming(true);
+            pistol.PickupWeapon(aimingPistolSpawn, leftHandTarget, rightHandTarget);
+            
+            ActivateAnimations();
         }
+    }
+
+    void DestroyPreviousWeapon(Transform weaponSpawn)
+    {
+        if (weaponSpawn != null && weaponSpawn.childCount > 0)
+        {
+            Destroy(weaponSpawn.GetChild(0).gameObject);
+        }
+    }
+
+    void ActivateAnimations()
+    {
+        leftHandIK.weight = 1f;
+        rightHandIK.weight = 1f;
+
+        SetAnimationIsArmed(true);
     }
 
     void FixedUpdate()
@@ -103,6 +84,16 @@ public class PickupWeaponController : PlayerBase
         {
             shotgun = topRayHitInfo.transform.gameObject.GetComponent<Shotgun>();
             pistol = topRayHitInfo.transform.gameObject.GetComponent<Pistol>();
+            // IWeapon weapon = other.GetComponent<IWeapon>();
+            // if (weapon != null)
+            // {
+            //     if (weaponSpawn != null && weaponSpawn.childCount > 2)
+            //     {
+            //         Destroy(weaponSpawn.GetChild(2).gameObject);
+            //     }
+            //     weapon.PickupWeapon(weaponSpawn);
+
+            // }
         }
     }
 }

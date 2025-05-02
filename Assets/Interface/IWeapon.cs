@@ -7,5 +7,5 @@ using UnityEngine;
 
 public interface IWeapon
 {
-    public void PickupWeapon(Transform spawnPoint);
+    public void PickupWeapon(Transform aimingSpawn, Transform leftHandTarget, Transform rightHandTarget);
 }

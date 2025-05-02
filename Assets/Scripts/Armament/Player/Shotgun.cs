@@ -8,24 +8,14 @@ public class Shotgun : MonoBehaviour, IWeapon
     [SerializeField] private Shotgun weapon;
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform spawnBullet;
-    Transform parent;
 
-    ObjectPool<Shotgun> poolShotgun;
+    [Header("IK Shotgun Hands Target")]
+    [SerializeField] private Transform IKRightHandPosShotgun;
+    [SerializeField] private Transform IKLeftHandPosShotgun;
 
     private float timerShoot = 0;
     private float timeBetweenShoot = 1;
     private bool isPickupWeapon = false;
-
-    void Awake()
-    {
-        poolShotgun = new ObjectPool<Shotgun>(CreateItem, TakeFromPool, ReturnToPool, DestroyItem, false, 10, 100);
-    }
-
-    void Start()
-    {
-        parent = transform.parent;
-    }
-
     void FixedUpdate()
     {
         timerShoot += Time.deltaTime;
@@ -40,36 +30,19 @@ public class Shotgun : MonoBehaviour, IWeapon
         isPickupWeapon = value;
     }
 
-    
-    private Shotgun CreateItem()
+    public void PickupWeapon(Transform aimingShotgunSpawn, Transform leftHandTarget, Transform rightHandTarget)
     {
-        Shotgun newWeapon = Instantiate(weapon);
-        newWeapon.enabled = false;
-        return newWeapon;
+        transform.SetParent(aimingShotgunSpawn.transform);
+        transform.position = aimingShotgunSpawn.position;
+        transform.rotation = aimingShotgunSpawn.rotation;
+
+        leftHandTarget.position = IKLeftHandPosShotgun.position;
+        leftHandTarget.rotation = IKLeftHandPosShotgun.rotation;
+
+        rightHandTarget.position = IKRightHandPosShotgun.position;
+        rightHandTarget.rotation = IKRightHandPosShotgun.rotation;
+
+        isAiming(true);
     }
 
-    private void TakeFromPool(Shotgun weapon)
-    {
-        weapon.enabled = true;
-    }
-
-    private void ReturnToPool(Shotgun weapon)
-    {
-        weapon.enabled = false;
-    }
-
-    private void DestroyItem(Shotgun weapon)
-    {
-        Destroy(weapon);
-    }
-
-    public void PickupWeapon(Transform spawnPoint)
-    {
-        // Shotgun newWeapon = poolShotgun.Get();
-        // newWeapon.transform.SetParent(spawnWeapon);
-        // newWeapon.transform.localPosition = Vector3.zero;
-        // newWeapon.transform.localRotation = Quaternion.identity;
-
-        // Destroy(gameObject);
-    }
 }
