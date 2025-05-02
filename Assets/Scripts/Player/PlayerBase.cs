@@ -8,6 +8,10 @@ public class PlayerBase : MonoBehaviour
     CharacterController _controller;
     PlayerRespawn playerRespawn;
 
+    public Animator animator;
+
+    private bool isArmed = false;
+
     float health = 100f;
     int lives = 3;
     float _posV;
@@ -47,6 +51,14 @@ public class PlayerBase : MonoBehaviour
         _playerVelocity.y += _gravity;
 
         _controller.Move(_playerVelocity * Time.deltaTime);
+
+        animator.SetFloat("VelY", _posH);
+        animator.SetFloat("VelX", _posV);
+
+        if (isArmed)
+        {
+            animator.SetBool("isArmed", true);
+        }
     }
 
     bool IsGrounded()
@@ -72,11 +84,21 @@ public class PlayerBase : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        if (health <= 0)
-        {
-            RemoveLive();
-        }
+        // health -= damage;
+        // if (health <= 0)
+        // {
+        //     RemoveLive();
+        // }
+    }
+
+    public void RestoreHealth()
+    {
+        health = 100f;
+    }
+
+    public void AddLive()
+    {
+        lives = 1;
     }
 
     public float GetHealth()
@@ -87,5 +109,10 @@ public class PlayerBase : MonoBehaviour
     public float GetLives()
     {
         return lives;
+    }
+
+    public void SetAnimationIsArmed(bool value)
+    {
+        animator.SetBool("isArmed", value);
     }
 }

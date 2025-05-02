@@ -10,6 +10,7 @@ public class BulletEnemy : MonoBehaviour
     bool hasCollided = false;
 
     PlayerBase playerBase;
+    Shield shield;
     Rigidbody rb;
     public void Awake()
     {
@@ -29,7 +30,13 @@ public class BulletEnemy : MonoBehaviour
             playerBase = collision.gameObject.GetComponent<PlayerBase>();
             playerBase.TakeDamage(_bulletDamage);
             Destroy(gameObject);
+        } else if (collision.gameObject.tag == "Shield")
+        {
+            if (hasCollided) return;
+            hasCollided = true;
+            shield = collision.gameObject.GetComponent<Shield>();
+            shield.TakeDamage(_bulletDamage);
+            Destroy(gameObject);
         }
     }
-
 }

@@ -9,6 +9,10 @@ TagManager:
   - Enemy
   - ShieldEnemy
   - BunkerEnemy
+  - PickupHealth
+  - PickupShield
+  - PickupLives
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -18,7 +22,7 @@ TagManager:
   - UI
   - Wall1
   - Enemy
-  - 
+  - Weapon
   - 
   - 
   - 

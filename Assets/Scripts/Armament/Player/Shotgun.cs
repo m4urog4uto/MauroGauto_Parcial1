@@ -13,7 +13,7 @@ public class Shotgun : MonoBehaviour, IWeapon
     ObjectPool<Shotgun> poolShotgun;
 
     private float timerShoot = 0;
-    private float timeBetweenShoot = 1;
+    private float timeBetweenShoot = 2;
 
     void Awake()
     {
@@ -42,7 +42,7 @@ public class Shotgun : MonoBehaviour, IWeapon
         newWeapon.transform.localPosition = Vector3.zero;
         newWeapon.transform.localRotation = Quaternion.identity;
 
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 
     

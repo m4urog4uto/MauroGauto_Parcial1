@@ -6,7 +6,7 @@ public class GranadeEnemy : MonoBehaviour
 {
     public float _bulletDamage;
     public float _bulletSpeed;
-    private float forceMultiplier = 8f;
+    private float forceMultiplier = 11.5f;
     PlayerBase playerBase;
     private GameObject player;
 
@@ -26,7 +26,6 @@ public class GranadeEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Vector3 forceDirection = (player.transform.position - transform.position).normalized;
         rb.AddForce((forceDirection + Vector3.up) * forceMultiplier, ForceMode.VelocityChange);
-        Destroy(gameObject, 2f);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -37,7 +36,7 @@ public class GranadeEnemy : MonoBehaviour
             hasCollided = true;
             playerBase = collision.gameObject.GetComponent<PlayerBase>();
             playerBase.TakeDamage(_bulletDamage);
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
     }
 

@@ -1,14 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine;
 
 public abstract class EnemyBase : MonoBehaviour
 {
-    [SerializeField] private int distance = 20;
-    [SerializeField] private int attackDistance = 10;
     [SerializeField] protected GameObject bullet;
-
     [SerializeField] private float health = 100;
+    [SerializeField] private int distance = 20;
+    [SerializeField] int attackMovementDistance = 10;
 
     protected int score;
 
@@ -20,31 +20,63 @@ public abstract class EnemyBase : MonoBehaviour
     
     private float playerAndEnemyDistance;
 
+    Dictionary<int, GameObject> pickupSupportDictionary = new Dictionary<int, GameObject>();
+
     protected virtual void Awake()
     {
         score = 10;
         player = GameObject.FindWithTag("Player");
+
+        // ChargePickupInDictionary(10, "PickupHealth");
+        ChargePickupInDictionary(10, "Shield");
+        // ChargePickupInDictionary(50, "PickupLives");
+    }
+    
+    void ChargePickupInDictionary(int id, string key)
+    {
+        Addressables.LoadAssetAsync<GameObject>(key).Completed += handle =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                GameObject pickup = handle.Result;
+                pickupSupportDictionary.Add(id, pickup);
+            }
+        };
     }
 
     protected virtual void Update()
     {
         timerShoot += Time.deltaTime;
-        playerAndEnemyDistance = Vector3.Distance(player.transform.position, transform.position);
 
-        if (player != null && playerAndEnemyDistance < distance)
+        if (player != null)
         {
-            Vector3 direction = (player.transform.position - transform.position).normalized;
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y + 5f, 0f);
-            if (playerAndEnemyDistance > attackDistance)
+            playerAndEnemyDistance = Vector3.Distance(player.transform.position, transform.position);
+
+            if (playerAndEnemyDistance < distance)
             {
-                transform.Translate(Vector3.forward * Time.deltaTime);
+                Vector3 direction = (player.transform.position - transform.position).normalized;
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y + 5f, 0f);
+
+                if (playerAndEnemyDistance > attackMovementDistance)
+                {
+                    transform.Translate(Vector3.forward * Time.deltaTime);
+                }
+                if (timerShoot > timeBetweenShoot)
+                {
+                    Shoot();
+                    timerShoot = 0f;
+                }
             }
-            if (timerShoot > timeBetweenShoot)
-            {
-                Shoot();
-                timerShoot = 0f;
-            }
+        }
+
+    }
+
+    public void DropPickups(int score)
+    {
+        if (pickupSupportDictionary.TryGetValue(score, out GameObject pickup))
+        {
+            Instantiate(pickup, transform.position, transform.rotation);
         }
     }
 
@@ -57,6 +89,7 @@ public abstract class EnemyBase : MonoBehaviour
         {
             Destroy(gameObject);
             GameManager.Instance.AddScore(gameObject.GetComponent<EnemyBase>().Score);
+            DropPickups(GameManager.Instance.Score);
         }
     }
 }
