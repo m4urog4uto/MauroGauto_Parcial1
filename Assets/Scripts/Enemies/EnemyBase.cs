@@ -20,7 +20,7 @@ public abstract class EnemyBase : MonoBehaviour
     private GameObject player;
     private float timerShoot;
     private float timeBetweenShoot = 2;
-    
+
     private float playerAndEnemyDistance;
 
     [Header("Right Hand Target")]
@@ -46,7 +46,7 @@ public abstract class EnemyBase : MonoBehaviour
         ChargePickupInDictionary(10, "Shield");
         // ChargePickupInDictionary(50, "PickupLives");
     }
-    
+
     void ChargePickupInDictionary(int id, string key)
     {
         Addressables.LoadAssetAsync<GameObject>(key).Completed += handle =>
@@ -84,12 +84,12 @@ public abstract class EnemyBase : MonoBehaviour
 
                 if (playerAndEnemyDistance > attackMovementDistance)
                 {
-                    animator.SetBool("isRunning", true);
+                    // animator.SetBool("isRunning", true);
                     transform.Translate(Vector3.forward * Time.deltaTime * 3f);
                 }
                 else
                 {
-                    animator.SetBool("isRunning", false);
+                    // animator.SetBool("isRunning", false);
                 }
                 if (timerShoot > timeBetweenShoot)
                 {
@@ -116,9 +116,15 @@ public abstract class EnemyBase : MonoBehaviour
         health -= damage;
         if (health < 0)
         {
-            Destroy(gameObject);
-            GameManager.Instance.AddScore(gameObject.GetComponent<EnemyBase>().Score);
-            DropPickups(GameManager.Instance.Score);
+            animator.SetBool("isDeath", true);
+            Invoke("WaitAndDestroy", 3f);
         }
+    }
+    
+    public void WaitAndDestroy()
+    {
+        Destroy(gameObject);
+        GameManager.Instance.AddScore(gameObject.GetComponent<EnemyBase>().Score);
+        DropPickups(GameManager.Instance.Score);
     }
 }

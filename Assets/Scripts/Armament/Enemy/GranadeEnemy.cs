@@ -6,7 +6,7 @@ public class GranadeEnemy : MonoBehaviour
 {
     public float _bulletDamage;
     public float _bulletSpeed;
-    private float forceMultiplier = 11.5f;
+    private float forceMultiplier = 7f;
     PlayerBase playerBase;
     private GameObject player;
 
@@ -38,6 +38,13 @@ public class GranadeEnemy : MonoBehaviour
             playerBase.TakeDamage(_bulletDamage);
             Destroy(gameObject);
         }
+        Destroy(gameObject);
+    }
+
+    void Update()
+    {
+        
+        Destroy(gameObject, 3f);
     }
 
     public void Shoot(GameObject granadeSpawn)
