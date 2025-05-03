@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -9,20 +6,11 @@ public class Shield : MonoBehaviour, IDamageEnemy, IPickupSupport
     [SerializeField] float shieldProtection = 100f;
 
     [SerializeField] private Shield shield;
-    Transform parent;
     ObjectPool<Shield> poolShield;
-
-    private BoxCollider boxCollider;
 
     void Awake()
     {
         poolShield = new ObjectPool<Shield>(CreateItem, TakeFromPool, ReturnToPool, DestroyItem, false, 10, 100);
-    }
-
-    void Start()
-    {
-        boxCollider = GetComponent<BoxCollider>();
-        parent = transform.parent;
     }
 
     public void TakeDamage(float damage)

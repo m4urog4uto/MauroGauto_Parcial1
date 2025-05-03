@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletEnemy : MonoBehaviour
@@ -23,6 +20,7 @@ public class BulletEnemy : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        // TODO: Refactor
         if (collision.gameObject.tag == "Player")
         {
             if (hasCollided) return;
@@ -30,7 +28,8 @@ public class BulletEnemy : MonoBehaviour
             playerBase = collision.gameObject.GetComponent<PlayerBase>();
             playerBase.TakeDamage(_bulletDamage);
             Destroy(gameObject);
-        } else if (collision.gameObject.tag == "Shield")
+        }
+        else if (collision.gameObject.tag == "Shield")
         {
             if (hasCollided) return;
             hasCollided = true;
