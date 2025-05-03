@@ -11,7 +11,7 @@ public class HealthText : MonoBehaviour
     {
         if (playerBase != null)
         {
-            healthText.text = $"Salud: {playerBase.GetHealth()}%";
+            healthText.text = $"Salud: {playerBase.Health}%";
         }
     }
 }

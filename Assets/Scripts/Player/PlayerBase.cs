@@ -13,7 +13,10 @@ public class PlayerBase : MonoBehaviour
     private bool isArmed = false;
 
     float health = 100f;
+    public float Health => health;
     int lives = 3;
+    public int Lives => lives;
+
     float _posV;
     float _posH;
     float _gravity = -9.8f;
@@ -99,16 +102,6 @@ public class PlayerBase : MonoBehaviour
     public void AddLive()
     {
         lives = 1;
-    }
-
-    public float GetHealth()
-    {
-        return health;
-    }
-
-    public float GetLives()
-    {
-        return lives;
     }
 
     public void SetAnimationIsArmed(bool value)

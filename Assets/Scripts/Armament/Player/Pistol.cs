@@ -8,6 +8,8 @@ public class Pistol : MonoBehaviour, IWeapon
     [SerializeField] private Pistol weapon;
     [SerializeField] private GameObject bulletPistol;
     [SerializeField] private Transform spawnBullet;
+    [SerializeField] private Transform aimingPistolSpawn;
+     [SerializeField] private Transform weaponPositions;
 
     [Header("IK Shotgun Hands Target")]
     [SerializeField] private Transform IKRightHandPosShotgun;
@@ -21,8 +23,6 @@ public class Pistol : MonoBehaviour, IWeapon
     {
         timerShoot += Time.deltaTime;
 
-        //  && timerShoot > timeBetween CON ESTA CONDICION NO ESTARIA DISPARANDO
-
         if (Input.GetButton("Fire1") && timerShoot > timeBetweenShoot && isPickupWeapon && spawnBullet != null && bulletPistol != null)
         {
             Instantiate(bulletPistol, spawnBullet.transform.position, spawnBullet.transform.rotation);
@@ -35,11 +35,18 @@ public class Pistol : MonoBehaviour, IWeapon
         isPickupWeapon = value;
     }
 
-    public void PickupWeapon(Transform aimingShotgunSpawn, Transform leftHandTarget, Transform rightHandTarget)
+    public void PickupWeapon(Transform leftHandTarget, Transform rightHandTarget)
     {
-        transform.SetParent(aimingShotgunSpawn.transform);
-        transform.position = aimingShotgunSpawn.position;
-        transform.rotation = aimingShotgunSpawn.rotation;
+        Transform spawnShotgun = weaponPositions.GetChild(0);
+        if (spawnShotgun.childCount > 0)
+        {
+            Transform weapon = spawnShotgun.GetChild(0);
+            Destroy(weapon.gameObject);
+        }
+
+        transform.SetParent(aimingPistolSpawn.transform);
+        transform.position = aimingPistolSpawn.position;
+        transform.rotation = aimingPistolSpawn.rotation;
 
         leftHandTarget.position = IKLeftHandPosShotgun.position;
         leftHandTarget.rotation = IKLeftHandPosShotgun.rotation;

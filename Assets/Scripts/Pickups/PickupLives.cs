@@ -8,8 +8,7 @@ public class PickupLives : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         player = other.GetComponent<PlayerBase>();
-        Debug.Log(player.GetLives());
-        if (player != null && player.GetLives() == 0)
+        if (player != null && player.Lives == 0)
         {
             player.AddLive();
             Destroy(gameObject);

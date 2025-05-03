@@ -8,6 +8,9 @@ public class Shotgun : MonoBehaviour, IWeapon
     [SerializeField] private Shotgun weapon;
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform spawnBullet;
+    [SerializeField] private Transform weaponPositions;
+
+    [SerializeField] private Transform aimingShotgunSpawn;
 
     [Header("IK Shotgun Hands Target")]
     [SerializeField] private Transform IKRightHandPosShotgun;
@@ -30,8 +33,15 @@ public class Shotgun : MonoBehaviour, IWeapon
         isPickupWeapon = value;
     }
 
-    public void PickupWeapon(Transform aimingShotgunSpawn, Transform leftHandTarget, Transform rightHandTarget)
+    public void PickupWeapon(Transform leftHandTarget, Transform rightHandTarget)
     {
+        Transform spawnPistol = weaponPositions.GetChild(1);
+        if (spawnPistol.childCount > 0)
+        {
+            Transform weapon = spawnPistol.GetChild(0);
+            Destroy(weapon.gameObject);
+        }
+
         transform.SetParent(aimingShotgunSpawn.transform);
         transform.position = aimingShotgunSpawn.position;
         transform.rotation = aimingShotgunSpawn.rotation;
@@ -44,5 +54,4 @@ public class Shotgun : MonoBehaviour, IWeapon
 
         isAiming(true);
     }
-
 }

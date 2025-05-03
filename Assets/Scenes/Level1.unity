@@ -227,8 +227,7 @@ MonoBehaviour:
   weaponMask:
     serializedVersion: 2
     m_Bits: 256
-  aimingShotgunSpawn: {fileID: 1892131749}
-  aimingPistolSpawn: {fileID: 1704067459}
+  weaponPosition: {fileID: 62610988}
   rightHandIK: {fileID: 1127373230}
   rightHandTarget: {fileID: 984150889}
   leftHandIK: {fileID: 1750419811}
@@ -403,8 +402,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1892131749}
-  - {fileID: 1704067459}
+  - {fileID: 1369579822}
+  - {fileID: 501629068}
   m_Father: {fileID: 543450653720808052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &85691466 stripped
@@ -585,6 +584,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2022880547}
     m_Modifications:
+    - target: {fileID: 1804011637511576155, guid: 83426d93fee0d3f45838cde530e7617e, type: 3}
+      propertyPath: weaponPositions
+      value: 
+      objectReference: {fileID: 62610988}
+    - target: {fileID: 1804011637511576155, guid: 83426d93fee0d3f45838cde530e7617e, type: 3}
+      propertyPath: aimingShotgunSpawn
+      value: 
+      objectReference: {fileID: 1369579822}
     - target: {fileID: 1804011637511576155, guid: 83426d93fee0d3f45838cde530e7617e, type: 3}
       propertyPath: IKLeftHandPosShotgun
       value: 
@@ -1312,6 +1319,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12306cda68efa1c4a8aebd6a09d61d25, type: 3}
+--- !u!1 &501629067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 501629068}
+  m_Layer: 0
+  m_Name: Aiming Pistol Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &501629068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501629067}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0023128628, y: -0.96504426, z: -0.008521141, w: 0.2619385}
+  m_LocalPosition: {x: 0.359, y: 1.404, z: 0.476}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 62610988}
+  m_LocalEulerAnglesHint: {x: 358.98822, y: 210.37146, z: 0}
 --- !u!1001 &514485483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1701,6 +1739,18 @@ PrefabInstance:
       propertyPath: bulletPistol
       value: 
       objectReference: {fileID: 2146454452442162795, guid: 2b3e75d2797cfc1499b5e94ed20c0143, type: 3}
+    - target: {fileID: 6804344018506097225, guid: 17e0fd0f84ab1294a94d6b54271471ff, type: 3}
+      propertyPath: weaponPosition
+      value: 
+      objectReference: {fileID: 62610988}
+    - target: {fileID: 6804344018506097225, guid: 17e0fd0f84ab1294a94d6b54271471ff, type: 3}
+      propertyPath: weaponPositions
+      value: 
+      objectReference: {fileID: 62610988}
+    - target: {fileID: 6804344018506097225, guid: 17e0fd0f84ab1294a94d6b54271471ff, type: 3}
+      propertyPath: aimingPistolSpawn
+      value: 
+      objectReference: {fileID: 501629068}
     - target: {fileID: 6804344018506097225, guid: 17e0fd0f84ab1294a94d6b54271471ff, type: 3}
       propertyPath: IKLeftHandPosShotgun
       value: 
@@ -3225,7 +3275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1087930285}
   m_Layer: 0
-  m_Name: --- Environment ---
+  m_Name: ---- Environment ----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3977,6 +4027,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f959452e7f931474592bccd111b8186d, type: 3}
+--- !u!1 &1369579821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1369579822}
+  m_Layer: 0
+  m_Name: Aiming Shotgun Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1369579822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369579821}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.9722302, z: -0, w: -0.23402666}
+  m_LocalPosition: {x: 0.398, y: 1.276, z: 0.27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 62610988}
+  m_LocalEulerAnglesHint: {x: 0, y: 207.06853, z: 0}
 --- !u!4 &1376913542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9f97238c458420f489d9abcd24852bc1, type: 3}
@@ -4620,37 +4701,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f959452e7f931474592bccd111b8186d, type: 3}
   m_PrefabInstance: {fileID: 1843943578}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1704067458
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1704067459}
-  m_Layer: 0
-  m_Name: Pistol Aiming Pos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1704067459
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704067458}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.0023128386, y: -0.9650442, z: -0.008521051, w: 0.2619385}
-  m_LocalPosition: {x: 0.359, y: 1.404, z: 0.476}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 62610988}
-  m_LocalEulerAnglesHint: {x: -1.012, y: -149.629, z: 0}
 --- !u!1001 &1709959734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5411,37 +5461,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1892131748
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1892131749}
-  m_Layer: 0
-  m_Name: Shotgun Aiming Pos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1892131749
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1892131748}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9722302, z: -0, w: 0.23402679}
-  m_LocalPosition: {x: 0.398, y: 1.276, z: 0.27}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 62610988}
-  m_LocalEulerAnglesHint: {x: 0, y: -152.931, z: 0}
 --- !u!4 &1903200583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f959452e7f931474592bccd111b8186d, type: 3}
@@ -5858,7 +5877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2044937428}
   m_Layer: 0
-  m_Name: --- Enemies ---
+  m_Name: ---- Enemies ----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8528,5 +8547,5 @@ SceneRoots:
   - {fileID: 1087930285}
   - {fileID: 243512930}
   - {fileID: 2044937428}
-  - {fileID: 543450653720808052}
   - {fileID: 2022880547}
+  - {fileID: 543450653720808052}

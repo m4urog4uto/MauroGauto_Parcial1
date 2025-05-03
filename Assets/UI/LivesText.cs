@@ -11,7 +11,7 @@ public class LivesText : MonoBehaviour
     {
         if (playerBase != null)
         {
-            livesText.text = $"Vidas: {playerBase.GetLives()}";
+            livesText.text = $"Vidas: {playerBase.Lives}";
         }
     }
 }
