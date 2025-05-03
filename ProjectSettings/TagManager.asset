@@ -7,12 +7,11 @@ TagManager:
   - Floor
   - Wall1
   - Enemy
-  - ShieldEnemy
-  - BunkerEnemy
   - PickupHealth
   - PickupShield
   - PickupLives
-  - Shield
+  - PickupLive
+  - RadioEnemy
   layers:
   - Default
   - TransparentFX

@@ -20,6 +20,7 @@ public abstract class EnemyBase : MonoBehaviour
     private GameObject player;
     private float timerShoot;
     private float timeBetweenShoot = 2;
+    private bool isEnemyAlive = true;
 
     private float playerAndEnemyDistance;
 
@@ -42,9 +43,9 @@ public abstract class EnemyBase : MonoBehaviour
         score = 10;
         player = GameObject.FindWithTag("Player");
 
-        // ChargePickupInDictionary(10, "PickupHealth");
-        ChargePickupInDictionary(10, "Shield");
-        // ChargePickupInDictionary(50, "PickupLives");
+        ChargePickupInDictionary(20, "PickupHealth");
+        ChargePickupInDictionary(40, "PickupShield");
+        ChargePickupInDictionary(50, "PickupLives");
     }
 
     void ChargePickupInDictionary(int id, string key)
@@ -72,7 +73,7 @@ public abstract class EnemyBase : MonoBehaviour
     {
         timerShoot += Time.deltaTime;
 
-        if (player != null)
+        if (player != null && isEnemyAlive)
         {
             playerAndEnemyDistance = Vector3.Distance(player.transform.position, transform.position);
 
@@ -84,12 +85,12 @@ public abstract class EnemyBase : MonoBehaviour
 
                 if (playerAndEnemyDistance > attackMovementDistance)
                 {
-                    // animator.SetBool("isRunning", true);
+                    animator.SetBool("isRunning", true);
                     transform.Translate(Vector3.forward * Time.deltaTime * 3f);
                 }
                 else
                 {
-                    // animator.SetBool("isRunning", false);
+                    animator.SetBool("isRunning", false);
                 }
                 if (timerShoot > timeBetweenShoot)
                 {
@@ -105,7 +106,7 @@ public abstract class EnemyBase : MonoBehaviour
     {
         if (pickupSupportDictionary.TryGetValue(score, out GameObject pickup))
         {
-            Instantiate(pickup, transform.position, transform.rotation);
+            Instantiate(pickup, transform.position + Vector3.up * 1f, transform.rotation);
         }
     }
 
@@ -117,6 +118,7 @@ public abstract class EnemyBase : MonoBehaviour
         if (health < 0)
         {
             animator.SetBool("isDeath", true);
+            isEnemyAlive = false;
             Invoke("WaitAndDestroy", 3f);
         }
     }

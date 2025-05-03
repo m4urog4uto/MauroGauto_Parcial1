@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class BulletEnemy : MonoBehaviour
 {
-    public int _bulletDamage = 20;
-    public float _bulletSpeed;
+    [SerializeField] int _bulletDamage = 20;
+    [SerializeField] float _bulletSpeed;
     bool hasCollided = false;
 
     PlayerBase playerBase;
@@ -12,8 +12,6 @@ public class BulletEnemy : MonoBehaviour
     public void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
-        // TODO: Agregar Delta Time
         rb.velocity = transform.forward * _bulletSpeed;
         Destroy(gameObject, 2f);
     }
@@ -29,7 +27,7 @@ public class BulletEnemy : MonoBehaviour
             playerBase.TakeDamage(_bulletDamage);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.tag == "Shield")
+        else if (collision.gameObject.tag == "RadioEnemy")
         {
             if (hasCollided) return;
             hasCollided = true;

@@ -17,18 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 4daa9e72b324af44aa2a7e746f233287
   m_SerializeEntries:
-  - m_GUID: 1e2712baee1fcc7429f612b5b9bd56b8
-    m_Address: PickupHealth
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 68585f0580ed97545ad1853998c7e1f7
-    m_Address: Shield
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e642105d5adeea54f805be9f5830d0e1
+  - m_GUID: 110999029aad9ca43afa0a29949f1d89
     m_Address: PickupLives
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11efc6dd4f5a9ca4d9de342c0268e011
+    m_Address: PickupShield
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a347c32781d5a314e9d46eebb7e92f52
+    m_Address: PickupHealth
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

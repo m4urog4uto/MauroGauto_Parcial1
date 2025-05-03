@@ -14,6 +14,8 @@ public class PlayerBase : MonoBehaviour
 
     float health = 100f;
     public float Health => health;
+    float protection = 0f;
+    public float Protection => protection;
     int lives = 3;
     public int Lives => lives;
 
@@ -87,16 +89,28 @@ public class PlayerBase : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        // health -= damage;
-        // if (health <= 0)
-        // {
-        //     RemoveLive();
-        // }
+        if (protection == 0)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                RemoveLive();
+            }
+        }
+        else
+        {
+            protection -= damage;
+        }
     }
 
     public void RestoreHealth()
     {
         health = 100f;
+    }
+
+    public void AddProtection()
+    {
+        protection = 100f;
     }
 
     public void AddLive()

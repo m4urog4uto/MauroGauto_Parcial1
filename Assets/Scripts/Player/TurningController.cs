@@ -20,7 +20,7 @@ public class TurningController : MonoBehaviour
 
         if (Physics.Raycast(camRay, out floorHit, camRayLenght, floorMask))
         {
-            if (floorHit.collider.CompareTag("Enemy"))
+            if (floorHit.collider.CompareTag("Enemy") || floorHit.collider.CompareTag("RadioEnemy"))
             {
                 Vector3 direction = (floorHit.transform.position - transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(direction);
