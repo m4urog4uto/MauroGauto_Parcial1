@@ -22,7 +22,7 @@ public class PickupLives : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         player = other.GetComponent<PlayerBase>();
-        if (player != null && player.Lives == 0)
+        if (player != null && GameManager.Instance.Lives < 3)
         {
             player.AddLive();
             Destroy(gameObject);

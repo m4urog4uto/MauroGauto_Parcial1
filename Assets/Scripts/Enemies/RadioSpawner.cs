@@ -6,11 +6,9 @@ using UnityEngine.SceneManagement;
 public class RadioSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> radioEnemies = new List<GameObject>();
-    // Start is called before the first frame update
     [SerializeField] private string nextScene;
-    void Start()
-    {
-    }
+
+    [SerializeField] Fade fadeAnimator;
 
     void Update()
     {
@@ -26,7 +24,13 @@ public class RadioSpawner : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Credits");
+            fadeAnimator.FadeOut();
+            Invoke("NextScene", 2f);
         }
+    }
+
+    void NextScene()
+    {
+        SceneManager.LoadScene(nextScene);
     }
 }

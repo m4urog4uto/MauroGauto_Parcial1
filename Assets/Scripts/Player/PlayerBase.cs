@@ -17,9 +17,6 @@ public class PlayerBase : MonoBehaviour
     public float Health => health;
     float protection = 0f;
 
-    int lives = 3;
-    public int Lives => lives;
-
     float _posV;
     float _posH;
     float _gravity = -9.8f;
@@ -75,11 +72,11 @@ public class PlayerBase : MonoBehaviour
 
     public void RemoveLive()
     {
-        if (lives != 0)
+        if (GameManager.Instance.Lives != 0)
         {
             playerRespawn.Respawn();
             health = 100f;
-            lives -= 1;
+            GameManager.Instance.RemoveLives();
         }
         else
         {
@@ -90,18 +87,18 @@ public class PlayerBase : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        // if (protection <= 0)
-        // {
-            // health -= damage;
-            // if (health <= 0)
-            // {
-            //     RemoveLive();
-            // }
-        // }
-        // else
-        // {
-        //     protection -= damage;
-        // }
+        if (protection <= 0)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                RemoveLive();
+            }
+        }
+        else
+        {
+            protection -= damage;
+        }
     }
 
     public float GetProtection() {
@@ -127,7 +124,7 @@ public class PlayerBase : MonoBehaviour
 
     public void AddLive()
     {
-        lives = 1;
+        GameManager.Instance.AddLives();
     }
 
     public void SetAnimationIsArmed(bool value)

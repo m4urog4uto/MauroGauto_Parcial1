@@ -5,8 +5,9 @@ public class Shotgun : MonoBehaviour, IWeapon
     [SerializeField] private Shotgun weapon;
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform spawnBullet;
+    
+    [Header("Weapons Spawner")]
     [SerializeField] private Transform weaponPositions;
-
     [SerializeField] private Transform aimingShotgunSpawn;
 
     [Header("IK Shotgun Hands Target")]

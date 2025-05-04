@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class BulletEnemy : MonoBehaviour
+public class BulletEnemy2 : MonoBehaviour
 {
-    [SerializeField] int _bulletDamage = 20;
-    [SerializeField] float _bulletSpeed;
+    int _bulletDamage = 30;
+    float _bulletSpeed = 15;
     bool hasCollided = false;
 
     PlayerBase playerBase;
@@ -26,7 +26,7 @@ public class BulletEnemy : MonoBehaviour
             playerBase.TakeDamage(_bulletDamage);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Floor")
+        else if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Floor" || collision.gameObject.tag == "RadioEnemy")
         {
             Destroy(gameObject);
         }

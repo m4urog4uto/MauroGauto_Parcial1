@@ -5,8 +5,10 @@ public class Pistol : MonoBehaviour, IWeapon
     [SerializeField] private Pistol weapon;
     [SerializeField] private GameObject bulletPistol;
     [SerializeField] private Transform spawnBullet;
+
+    [Header("Weapons Spawner")]
+    [SerializeField] private Transform weaponPositions;
     [SerializeField] private Transform aimingPistolSpawn;
-     [SerializeField] private Transform weaponPositions;
 
     [Header("IK Shotgun Hands Target")]
     [SerializeField] private Transform IKRightHandPosShotgun;
@@ -15,7 +17,7 @@ public class Pistol : MonoBehaviour, IWeapon
     private bool isPickupWeapon = false;
 
     private float timerShoot = 0;
-    private float timeBetweenShoot = 1;
+    private float timeBetweenShoot = 0.5f;
     void FixedUpdate()
     {
         timerShoot += Time.deltaTime;

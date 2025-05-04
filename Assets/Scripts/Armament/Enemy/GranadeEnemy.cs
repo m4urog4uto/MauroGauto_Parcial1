@@ -67,7 +67,7 @@ public class GranadeEnemy : MonoBehaviour
             playerBase.TakeDamage(_bulletDamage);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Floor")
+        else if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Floor" || collision.gameObject.tag == "RadioEnemy")
         {
             Destroy(gameObject);
         }

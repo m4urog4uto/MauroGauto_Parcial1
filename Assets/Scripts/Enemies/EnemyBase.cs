@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine;
-using UnityEngine.Animations.Rigging;
-using Unity.VisualScripting;
 
 public abstract class EnemyBase : MonoBehaviour
 {
@@ -33,9 +31,9 @@ public abstract class EnemyBase : MonoBehaviour
         score = 10;
         player = GameObject.FindWithTag("Player");
 
-        ChargePickupInDictionary(20, "PickupHealth");
-        ChargePickupInDictionary(40, "PickupShield");
-        ChargePickupInDictionary(50, "PickupLives");
+        ChargePickupInDictionary(110, "PickupHealth");
+        ChargePickupInDictionary(300, "PickupShield");
+        ChargePickupInDictionary(350, "PickupLives");
     }
 
     void ChargePickupInDictionary(int id, string key)
@@ -108,7 +106,6 @@ public abstract class EnemyBase : MonoBehaviour
     {
         Destroy(gameObject);
         GameManager.Instance.AddScore(gameObject.GetComponent<EnemyBase>().Score);
-        if (GameManager.Instance.Score >= 50)
         DropPickups(GameManager.Instance.Score);
     }
 

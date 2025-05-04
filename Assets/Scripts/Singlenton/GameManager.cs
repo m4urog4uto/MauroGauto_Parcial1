@@ -6,11 +6,13 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
 
     List<IObserver> observers = new List<IObserver>();
-    [SerializeField] private List<GameObject> radioEnemys = new List<GameObject>();
 
     public static GameManager Instance => instance;
 
     private int score;
+    private int lives = 3;
+
+    public int Lives => lives;
 
     public int Score => score;
 
@@ -32,6 +34,16 @@ public class GameManager : MonoBehaviour
     {
         score += newScore;
         NotifyObservers();
+    }
+
+    public void RemoveLives()
+    {
+        lives -= 1;
+    }
+
+    public void AddLives()
+    {
+        lives += 1;
     }
 
     public void AddObserver(IObserver observer)

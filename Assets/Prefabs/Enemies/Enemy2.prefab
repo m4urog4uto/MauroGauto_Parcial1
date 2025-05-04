@@ -493,6 +493,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.09
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.09
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.009000315
       objectReference: {fileID: 0}
@@ -530,6 +542,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
@@ -659,10 +675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8757de9b44af3ad46bf02461205e345b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 2146454452442162795, guid: bda856dd032b6ab49bd2a56b1dcbeb7b, type: 3}
-  health: 100
-  distance: 20
-  attackMovementDistance: 10
+  bullet: {fileID: 2146454452442162795, guid: eaa52ec5c130cb243a1964f77c36d315, type: 3}
+  health: 120
+  distance: 30
+  minDistanceAttack: 10
   animator: {fileID: 3663794311971979353}
   spawnBullet1: {fileID: 6183514626880314126}
 --- !u!95 &3663794311971979353

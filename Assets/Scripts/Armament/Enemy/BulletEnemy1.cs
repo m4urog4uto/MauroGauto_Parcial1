@@ -1,28 +1,33 @@
 using UnityEngine;
 
-public class BulletTurret : MonoBehaviour
+public class BulletEnemy1 : MonoBehaviour
 {
-    [SerializeField] float _bulletSpeed = 10f;
-    [SerializeField] int _bulletDamage = 10;
+    int _bulletDamage = 20;
+    float _bulletSpeed = 10;
+    bool hasCollided = false;
+
     PlayerBase playerBase;
     Rigidbody rb;
-    bool hasCollided = false;
-    public void Start()
+    public void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
-        // TODO: Agregar Delta Time
         rb.velocity = transform.forward * _bulletSpeed;
         Destroy(gameObject, 2f);
     }
-    void OnCollisionEnter(Collision collision)
+
+    public void OnCollisionEnter(Collision collision)
     {
+        // TODO: Refactor
         if (collision.gameObject.tag == "Player")
         {
             if (hasCollided) return;
             hasCollided = true;
             playerBase = collision.gameObject.GetComponent<PlayerBase>();
             playerBase.TakeDamage(_bulletDamage);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Floor" || collision.gameObject.tag == "RadioEnemy")
+        {
             Destroy(gameObject);
         }
     }
