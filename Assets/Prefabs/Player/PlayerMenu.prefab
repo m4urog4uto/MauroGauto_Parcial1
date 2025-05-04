@@ -2642,7 +2642,6 @@ GameObject:
   - component: {fileID: 8650293727449348654}
   - component: {fileID: 4968994966176226663}
   - component: {fileID: 5878884745604253585}
-  - component: {fileID: 2808633757129600088}
   m_Layer: 0
   m_Name: PlayerMenu
   m_TagString: Player
@@ -2739,15 +2738,3 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.93, z: 0}
---- !u!114 &2808633757129600088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9110265587236699721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cefdbc7c296c504ab3ef2315ed32380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

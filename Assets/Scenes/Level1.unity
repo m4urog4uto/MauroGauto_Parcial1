@@ -443,8 +443,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -224.01184, y: 116.34114}
-  m_SizeDelta: {x: -267.017, y: 293.2359}
+  m_AnchoredPosition: {x: -306.9264, y: 150.6}
+  m_SizeDelta: {x: -437.8877, y: 293.2358}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &177811613
 MonoBehaviour:
@@ -519,7 +519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41.100067, y: 0.000015258789}
+  m_AnchoredPosition: {x: 56, y: 0.000015258789}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &201938401
@@ -712,7 +712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 315.3, y: 142.12866}
+  m_AnchoredPosition: {x: 357.55, y: 177.72868}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &376918726
@@ -1165,7 +1165,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -229.11307, y: 101.7}
+  m_AnchoredPosition: {x: -313.6, y: 129.9}
   m_SizeDelta: {x: 147.5739, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1011372270
@@ -1313,7 +1313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 264.65, y: 137.2}
+  m_AnchoredPosition: {x: 306.9, y: 172.8}
   m_SizeDelta: {x: -434.21, y: 31.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050523025
@@ -1389,7 +1389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -203.5, y: -166.7}
+  m_AnchoredPosition: {x: -244.4646, y: -198.86406}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1329228047
@@ -1580,7 +1580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1628,7 +1628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2061307501828694225, guid: e6475bea412104142b2445868052cf4c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -56.9
+      value: 23.75
       objectReference: {fileID: 0}
     - target: {fileID: 2061307501828694225, guid: e6475bea412104142b2445868052cf4c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1636,7 +1636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2061307501828694225, guid: e6475bea412104142b2445868052cf4c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19
+      value: 16.94
       objectReference: {fileID: 0}
     - target: {fileID: 2061307501828694225, guid: e6475bea412104142b2445868052cf4c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2162,7 +2162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -201.4, y: 137.1}
+  m_AnchoredPosition: {x: -288.8, y: 171.35886}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1957216724
@@ -2310,7 +2310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250.53537, y: -156.63594}
+  m_AnchoredPosition: {x: -291.5, y: -188.8}
   m_SizeDelta: {x: -369.0306, y: -127.5884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979430692
@@ -2871,7 +2871,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.001
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8591375880016152495, guid: 1e18930bc98e1a74893115f786d343e8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

@@ -32,22 +32,10 @@ public abstract class EnemyBase : MonoBehaviour
         player = GameObject.FindWithTag("Player");
 
         ChargePickupInDictionary(110, "PickupHealth");
-        ChargePickupInDictionary(300, "PickupShield");
-        ChargePickupInDictionary(350, "PickupLives");
+        ChargePickupInDictionary(250, "PickupShield");
+        ChargePickupInDictionary(300, "PickupLives");
     }
-
-    void ChargePickupInDictionary(int id, string key)
-    {
-        Addressables.LoadAssetAsync<GameObject>(key).Completed += handle =>
-        {
-            if (handle.Status == AsyncOperationStatus.Succeeded)
-            {
-                GameObject pickup = handle.Result;
-                pickupSupportDictionary.Add(id, pickup);
-            }
-        };
-    }
-
+    
     protected virtual void FixedUpdate()
     {
         timerShoot += Time.deltaTime;
@@ -79,6 +67,17 @@ public abstract class EnemyBase : MonoBehaviour
             }
         }
 
+    }
+    void ChargePickupInDictionary(int id, string key)
+    {
+        Addressables.LoadAssetAsync<GameObject>(key).Completed += handle =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                GameObject pickup = handle.Result;
+                pickupSupportDictionary.Add(id, pickup);
+            }
+        };
     }
 
     public void DropPickups(int score)

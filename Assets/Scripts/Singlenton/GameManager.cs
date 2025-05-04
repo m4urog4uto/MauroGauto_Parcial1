@@ -30,6 +30,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ResetData()
+    {
+        score = 0;
+        lives = 0;
+    }
+
     public void AddScore(int newScore)
     {
         score += newScore;

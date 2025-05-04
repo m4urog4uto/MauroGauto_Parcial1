@@ -76,6 +76,7 @@ public class PlayerBase : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.ResetData();
             Destroy(gameObject);
             SceneManager.LoadScene("Lose");
         }

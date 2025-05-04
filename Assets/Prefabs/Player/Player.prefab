@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8400065906085477830}
   - component: {fileID: 4679272362379897673}
   - component: {fileID: 4466035435042607557}
-  - component: {fileID: 8591375880016152495}
   - component: {fileID: 7923919389328168305}
   - component: {fileID: 1095111847406024090}
   m_Layer: 0
@@ -151,19 +150,6 @@ MonoBehaviour:
   rightHandTarget: {fileID: 5228686991004523348}
   leftHandIK: {fileID: 6971717653743768692}
   leftHandTarget: {fileID: 1140440454245550391}
---- !u!114 &8591375880016152495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66579687865569257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c387011f215a17d4fb93d741d97dec67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  supportSpawn: {fileID: 0}
 --- !u!114 &7923919389328168305
 MonoBehaviour:
   m_ObjectHideFlags: 0
