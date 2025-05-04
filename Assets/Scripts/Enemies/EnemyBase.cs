@@ -3,13 +3,16 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using Unity.VisualScripting;
 
 public abstract class EnemyBase : MonoBehaviour
 {
     [SerializeField] protected GameObject bullet;
     [SerializeField] private float health = 100;
     [SerializeField] private int distance = 20;
-    [SerializeField] int attackMovementDistance = 10;
+    [SerializeField] int minDistanceAttack = 10;
+
+    public int MinDistanceAttack => minDistanceAttack;
 
     public Animator animator;
 
@@ -23,19 +26,6 @@ public abstract class EnemyBase : MonoBehaviour
     private bool isEnemyAlive = true;
 
     private float playerAndEnemyDistance;
-
-    [Header("Right Hand Target")]
-    [SerializeField] private TwoBoneIKConstraint rightHandIK;
-    [SerializeField] private Transform rightHandTarget;
-
-    [Header("Left Hand Target")]
-    [SerializeField] private TwoBoneIKConstraint leftHandIK;
-    [SerializeField] private Transform leftHandTarget;
-
-    [Header("IK Rifle Hands Target")]
-    [SerializeField] private Transform IKRightHandPosRifle;
-    [SerializeField] private Transform IKLeftHandPosRifle;
-
     Dictionary<int, GameObject> pickupSupportDictionary = new Dictionary<int, GameObject>();
 
     protected virtual void Awake()
@@ -60,15 +50,6 @@ public abstract class EnemyBase : MonoBehaviour
         };
     }
 
-    void Update()
-    {
-        leftHandTarget.position = IKLeftHandPosRifle.position;
-        leftHandTarget.rotation = IKLeftHandPosRifle.rotation;
-
-        rightHandTarget.position = IKRightHandPosRifle.position;
-        rightHandTarget.rotation = IKRightHandPosRifle.rotation;
-    }
-
     protected virtual void FixedUpdate()
     {
         timerShoot += Time.deltaTime;
@@ -83,7 +64,7 @@ public abstract class EnemyBase : MonoBehaviour
                 Quaternion lookRotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
 
-                if (playerAndEnemyDistance > attackMovementDistance)
+                if (playerAndEnemyDistance > minDistanceAttack)
                 {
                     animator.SetBool("isRunning", true);
                     transform.Translate(Vector3.forward * Time.deltaTime * 3f);
@@ -115,18 +96,24 @@ public abstract class EnemyBase : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        if (health < 0)
+        if (health <= 0)
         {
             animator.SetBool("isDeath", true);
             isEnemyAlive = false;
             Invoke("WaitAndDestroy", 3f);
         }
     }
-    
+
     public void WaitAndDestroy()
     {
         Destroy(gameObject);
         GameManager.Instance.AddScore(gameObject.GetComponent<EnemyBase>().Score);
+        if (GameManager.Instance.Score >= 50)
         DropPickups(GameManager.Instance.Score);
+    }
+
+    public float PlayerDistance()
+    {
+        return Vector3.Distance(player.transform.position, transform.position);
     }
 }

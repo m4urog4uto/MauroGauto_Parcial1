@@ -25,7 +25,7 @@ public class PickupShield : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         player = other.GetComponent<PlayerBase>();
-        if (player != null)
+        if (player != null && player.GetProtection() != 100f)
         {
             player.AddProtection();
             Destroy(gameObject);

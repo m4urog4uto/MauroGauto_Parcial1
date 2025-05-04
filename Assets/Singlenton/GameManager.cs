@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
 
     List<IObserver> observers = new List<IObserver>();
+    [SerializeField] private List<GameObject> radioEnemys = new List<GameObject>();
 
     public static GameManager Instance => instance;
 
@@ -18,12 +19,13 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            transform.parent = null;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     public void AddScore(int newScore)
@@ -44,7 +46,7 @@ public class GameManager : MonoBehaviour
     {
         if (observers.Contains(observer))
         {
-           observers.Remove(observer);
+            observers.Remove(observer);
         }
     }
 

@@ -13,7 +13,7 @@ public class ProtectionTxt : MonoBehaviour
     {
         if (playerBase != null)
         {
-            protectionText.text = $"Proteccion: {playerBase.Protection}%";
+            protectionText.text = $"Proteccion: {playerBase.GetProtection()}%";
         }
     }
 }

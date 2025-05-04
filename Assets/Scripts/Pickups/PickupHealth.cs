@@ -25,7 +25,7 @@ public class PickupHealth : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         player = other.GetComponent<PlayerBase>();
-        if (player != null)
+        if (player != null && player.Health != 100f)
         {
             player.RestoreHealth();
             Destroy(gameObject);

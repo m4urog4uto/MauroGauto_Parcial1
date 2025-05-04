@@ -313,12 +313,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6183514626880314126}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.137, y: 1.374, z: 0.7335}
+  m_LocalRotation: {x: -0.000000012107194, y: 0.9999441, z: -0.000000029802322, w: -0.010580241}
+  m_LocalPosition: {x: -0.006, y: 0.019, z: -0.747}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2061307501828694225}
+  m_Father: {fileID: 2493258293896318979}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6392030572753096360
 GameObject:
@@ -474,9 +474,6 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4888833793250055029}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2493258293896318979}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
       insertIndex: -1
@@ -500,6 +497,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6181145640587843829}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1549917372842127352}
   m_SourcePrefab: {fileID: 100100000, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
 --- !u!4 &1049951358422038738 stripped
 Transform:
@@ -591,14 +591,8 @@ MonoBehaviour:
   bullet: {fileID: 2146454452442162795, guid: bda856dd032b6ab49bd2a56b1dcbeb7b, type: 3}
   health: 100
   distance: 20
-  attackMovementDistance: 10
+  minDistanceAttack: 10
   animator: {fileID: 3663794311971979353}
-  rightHandIK: {fileID: 5584603536080017984}
-  rightHandTarget: {fileID: 6788820032702349472}
-  leftHandIK: {fileID: 2898798070135279237}
-  leftHandTarget: {fileID: 2181821232327903127}
-  IKRightHandPosRifle: {fileID: 1560524165405041183}
-  IKLeftHandPosRifle: {fileID: 9158772536761038431}
   spawnBullet1: {fileID: 6183514626880314126}
 --- !u!95 &3663794311971979353
 Animator:
@@ -656,6 +650,24 @@ MonoBehaviour:
   - m_Rig: {fileID: 525603873065681761}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &1549917372842127352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716131960443157099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c59768428096c4c84aa92965035655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightHandIK: {fileID: 5584603536080017984}
+  rightHandTarget: {fileID: 6788820032702349472}
+  leftHandIK: {fileID: 2898798070135279237}
+  leftHandTarget: {fileID: 2181821232327903127}
+  IKRightHandPosRifle: {fileID: 1560524165405041183}
+  IKLeftHandPosRifle: {fileID: 9158772536761038431}
 --- !u!4 &2061307501828694225 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
@@ -759,6 +771,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d6bb14e98fc1f4642ae6da26bb7ac4ca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9158772536761038431}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d6bb14e98fc1f4642ae6da26bb7ac4ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4888833793250055029}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6bb14e98fc1f4642ae6da26bb7ac4ca, type: 3}
 --- !u!4 &2493258293896318979 stripped

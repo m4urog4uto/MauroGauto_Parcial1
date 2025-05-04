@@ -4,12 +4,8 @@ public class GranadeEnemy : MonoBehaviour
 {
     public float _bulletDamage;
     public float _bulletSpeed;
-    private float forceMultiplier = 7f;
     PlayerBase playerBase;
     private GameObject player;
-
-    // TODO: Ta mal, granada es un script aparte
-    [SerializeField] private GameObject granade;
     bool hasCollided = false;
 
 
@@ -19,11 +15,46 @@ public class GranadeEnemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        // TODO: Error con Rb llamado multiples veces
+
         Rigidbody rb;
         rb = GetComponent<Rigidbody>();
+
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+
+        float minDistance = 5f;
+        float midDistance = 18f;
+        float maxDistance = 14f;
+
+        float closeForce = 5f;
+        float midForce = 10f;
+        float farForce = 14f;
+
+        float forceToApply;
+
+        if (distance <= minDistance)
+        {
+            forceToApply = closeForce;
+        }
+        else if (distance <= midDistance)
+        {
+            // Escalado entre closeForce y midForce
+            float t = Mathf.InverseLerp(minDistance, midDistance, distance);
+            forceToApply = Mathf.Lerp(closeForce, midForce, t);
+        }
+        else if (distance <= maxDistance)
+        {
+            // Escalado entre midForce y farForce
+            float t = Mathf.InverseLerp(midDistance, maxDistance, distance);
+            forceToApply = Mathf.Lerp(midForce, farForce, t);
+        }
+        else
+        {
+            // Limitar la fuerza si está más lejos que maxDistance
+            forceToApply = farForce;
+        }
+
         Vector3 forceDirection = (player.transform.position - transform.position).normalized;
-        rb.AddForce((forceDirection + Vector3.up) * forceMultiplier, ForceMode.VelocityChange);
+        rb.AddForce((forceDirection + Vector3.up) * forceToApply, ForceMode.VelocityChange);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -36,17 +67,9 @@ public class GranadeEnemy : MonoBehaviour
             playerBase.TakeDamage(_bulletDamage);
             Destroy(gameObject);
         }
-        Destroy(gameObject);
-    }
-
-    void Update()
-    {
-        
-        Destroy(gameObject, 3f);
-    }
-
-    public void Shoot(GameObject granadeSpawn)
-    {
-        Instantiate(granade, granadeSpawn.transform.position, granadeSpawn.transform.rotation);
+        else if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Floor")
+        {
+            Destroy(gameObject);
+        }
     }
 }

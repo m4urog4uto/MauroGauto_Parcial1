@@ -545,10 +545,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3851951814137736548}
+      addedObject: {fileID: 721050604706258937}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 721050604706258937}
+      addedObject: {fileID: 3851951814137736548}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
       insertIndex: -1
@@ -568,6 +568,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6181145640587843829}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8670307245267895942}
   m_SourcePrefab: {fileID: 100100000, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}
 --- !u!4 &1049951358422038738 stripped
 Transform:
@@ -661,12 +664,6 @@ MonoBehaviour:
   distance: 20
   attackMovementDistance: 10
   animator: {fileID: 3663794311971979353}
-  rightHandIK: {fileID: 5584603536080017984}
-  rightHandTarget: {fileID: 6788820032702349472}
-  leftHandIK: {fileID: 2898798070135279237}
-  leftHandTarget: {fileID: 2181821232327903127}
-  IKRightHandPosRifle: {fileID: 7706335134841016626}
-  IKLeftHandPosRifle: {fileID: 562032582026230381}
   spawnBullet1: {fileID: 6183514626880314126}
 --- !u!95 &3663794311971979353
 Animator:
@@ -724,6 +721,24 @@ MonoBehaviour:
   - m_Rig: {fileID: 525603873065681761}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &-8670307245267895942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716131960443157099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c59768428096c4c84aa92965035655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightHandIK: {fileID: 5584603536080017984}
+  rightHandTarget: {fileID: 6788820032702349472}
+  leftHandIK: {fileID: 2898798070135279237}
+  leftHandTarget: {fileID: 2181821232327903127}
+  IKRightHandPosRifle: {fileID: 7706335134841016626}
+  IKLeftHandPosRifle: {fileID: 562032582026230381}
 --- !u!4 &2061307501828694225 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aac4b3fdbc7cdf44aaca13bfa4979615, type: 3}

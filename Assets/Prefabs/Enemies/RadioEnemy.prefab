@@ -69,6 +69,10 @@ PrefabInstance:
       value: RadioEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cf8b53ba053572e43aa7093aea791bb3, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cf8b53ba053572e43aa7093aea791bb3, type: 3}
       propertyPath: m_TagString
       value: RadioEnemy
       objectReference: {fileID: 0}
@@ -122,3 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bunkerProtection: 300
+  isTheLast: 0

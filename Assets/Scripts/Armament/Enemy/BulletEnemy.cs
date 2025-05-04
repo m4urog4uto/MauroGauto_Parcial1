@@ -7,7 +7,6 @@ public class BulletEnemy : MonoBehaviour
     bool hasCollided = false;
 
     PlayerBase playerBase;
-    Shield shield;
     Rigidbody rb;
     public void Awake()
     {
@@ -27,12 +26,8 @@ public class BulletEnemy : MonoBehaviour
             playerBase.TakeDamage(_bulletDamage);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.tag == "RadioEnemy")
+        else if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Floor")
         {
-            if (hasCollided) return;
-            hasCollided = true;
-            shield = collision.gameObject.GetComponent<Shield>();
-            shield.TakeDamage(_bulletDamage);
             Destroy(gameObject);
         }
     }

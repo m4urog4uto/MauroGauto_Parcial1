@@ -31,7 +31,7 @@ public class Pistol : MonoBehaviour, IWeapon
     {
         isPickupWeapon = value;
     }
-
+    
     public void PickupWeapon(Transform leftHandTarget, Transform rightHandTarget)
     {
         Transform spawnShotgun = weaponPositions.GetChild(0);

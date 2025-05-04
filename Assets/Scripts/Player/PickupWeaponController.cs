@@ -25,15 +25,13 @@ public class PickupWeaponController : PlayerBase
     void FixedUpdate()
     {
         RaycastHandler();
+        PickupWeapon();
     }
 
     private void RaycastHandler()
     {
         Ray topRay = new Ray(transform.position + rayOffset, transform.forward);
-        Debug.DrawRay(transform.position + rayOffset, transform.forward * rayLength, Color.red);
         Physics.Raycast(topRay, out topRayHitInfo, rayLength, weaponMask);
-
-        PickupWeapon();
     }
 
     private void PickupWeapon()

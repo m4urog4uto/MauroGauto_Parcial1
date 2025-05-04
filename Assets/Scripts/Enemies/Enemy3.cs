@@ -3,15 +3,13 @@ using UnityEngine;
 public class Enemy3 : EnemyBase, IDamageEnemy
 {
     [SerializeField] private GameObject granadeSpawn;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        score = 30;
-    }
+    [SerializeField] private GameObject granade;
 
     public override void Shoot()
     {
-        Instantiate(bullet, granadeSpawn.transform.position, granadeSpawn.transform.rotation);
+        if (PlayerDistance() <= MinDistanceAttack)
+        {
+            Instantiate(granade, granadeSpawn.transform.position, granadeSpawn.transform.rotation);
+        }
     }
 }
