@@ -25,15 +25,11 @@ public class PlayerBase : MonoBehaviour
     Vector3 _spherePhysics;
 
     [SerializeField] float _speed = 0;
-
-    // Start is called before the first frame update
     void Awake()
     {
         playerRespawn = GetComponent<PlayerRespawn>();
         _controller = GetComponent<CharacterController>();
     }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         Move();

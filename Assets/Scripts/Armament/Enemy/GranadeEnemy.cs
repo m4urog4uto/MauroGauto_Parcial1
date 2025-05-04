@@ -8,10 +8,6 @@ public class GranadeEnemy : MonoBehaviour
     private GameObject player;
     bool hasCollided = false;
 
-
-
-
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -37,19 +33,16 @@ public class GranadeEnemy : MonoBehaviour
         }
         else if (distance <= midDistance)
         {
-            // Escalado entre closeForce y midForce
             float t = Mathf.InverseLerp(minDistance, midDistance, distance);
             forceToApply = Mathf.Lerp(closeForce, midForce, t);
         }
         else if (distance <= maxDistance)
         {
-            // Escalado entre midForce y farForce
             float t = Mathf.InverseLerp(midDistance, maxDistance, distance);
             forceToApply = Mathf.Lerp(midForce, farForce, t);
         }
         else
         {
-            // Limitar la fuerza si está más lejos que maxDistance
             forceToApply = farForce;
         }
 

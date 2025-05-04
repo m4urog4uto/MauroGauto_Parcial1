@@ -22,7 +22,6 @@ public class AddC4Controller : MonoBehaviour
     private void RaycastHandler()
     {
         Ray topRay = new Ray(transform.position + rayOffset, transform.forward);
-        // Debug.DrawRay(topRay.origin, topRay.direction * rayLength, Color.red);
         Physics.Raycast(topRay, out topRayHitInfo, rayLength, weaponMask);
     }
 

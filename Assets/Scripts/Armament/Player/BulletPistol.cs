@@ -6,8 +6,6 @@ public class BulletPistol : MonoBehaviour
     public float _bulletSpeed;
 
     Rigidbody rb;
-
-    // Start is called before the first frame update
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
