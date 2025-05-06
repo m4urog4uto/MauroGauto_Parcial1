@@ -9,6 +9,7 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] private float health = 100;
     [SerializeField] private int distance = 20;
     [SerializeField] int minDistanceAttack = 10;
+    [SerializeField] GameObject weapon;
 
     public int MinDistanceAttack => minDistanceAttack;
 
@@ -32,7 +33,9 @@ public abstract class EnemyBase : MonoBehaviour
         player = GameObject.FindWithTag("Player");
 
         ChargePickupInDictionary(110, "PickupHealth");
+        ChargePickupInDictionary(160, "PickupShield");
         ChargePickupInDictionary(250, "PickupShield");
+        ChargePickupInDictionary(290, "PickupHealth");
         ChargePickupInDictionary(300, "PickupLives");
     }
     
@@ -97,6 +100,7 @@ public abstract class EnemyBase : MonoBehaviour
         {
             animator.SetBool("isDeath", true);
             isEnemyAlive = false;
+            Destroy(weapon.gameObject);
             Invoke("WaitAndDestroy", 3f);
         }
     }

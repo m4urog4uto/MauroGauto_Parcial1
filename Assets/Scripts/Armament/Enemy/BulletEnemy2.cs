@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BulletEnemy2 : MonoBehaviour
 {
-    int _bulletDamage = 30;
+    int _bulletDamage = 25;
     float _bulletSpeed = 15;
     bool hasCollided = false;
 
@@ -17,7 +17,6 @@ public class BulletEnemy2 : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        // TODO: Refactor
         if (collision.gameObject.tag == "Player")
         {
             if (hasCollided) return;

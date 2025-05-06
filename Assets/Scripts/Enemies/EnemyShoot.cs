@@ -15,14 +15,18 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private Transform leftHandTarget;
 
     [Header("IK Rifle Hands Target")]
+    [SerializeField] GameObject weapon;
     [SerializeField] private Transform IKRightHandPosRifle;
     [SerializeField] private Transform IKLeftHandPosRifle;
     void Update()
     {
-        leftHandTarget.position = IKLeftHandPosRifle.position;
-        leftHandTarget.rotation = IKLeftHandPosRifle.rotation;
+        if (weapon != null)
+        {
+            leftHandTarget.position = IKLeftHandPosRifle.position;
+            leftHandTarget.rotation = IKLeftHandPosRifle.rotation;
 
-        rightHandTarget.position = IKRightHandPosRifle.position;
-        rightHandTarget.rotation = IKRightHandPosRifle.rotation;
+            rightHandTarget.position = IKRightHandPosRifle.position;
+            rightHandTarget.rotation = IKRightHandPosRifle.rotation;
+        }
     }
 }

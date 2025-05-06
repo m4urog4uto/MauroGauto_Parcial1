@@ -18,12 +18,20 @@ public class Pistol : MonoBehaviour, IWeapon
 
     private float timerShoot = 0;
     private float timeBetweenShoot = 0.5f;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void FixedUpdate()
     {
         timerShoot += Time.deltaTime;
 
         if (Input.GetButton("Fire1") && timerShoot > timeBetweenShoot && isPickupWeapon && spawnBullet != null && bulletPistol != null)
         {
+            audioSource.Play();
             Instantiate(bulletPistol, spawnBullet.transform.position, spawnBullet.transform.rotation);
             timerShoot = 0f;
         }

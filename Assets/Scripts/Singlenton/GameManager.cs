@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     public void ResetData()
     {
         score = 0;
-        lives = 0;
+        lives = 3;
     }
 
     public void AddScore(int newScore)

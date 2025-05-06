@@ -17,11 +17,19 @@ public class Shotgun : MonoBehaviour, IWeapon
     private float timerShoot = 0;
     private float timeBetweenShoot = 1;
     private bool isPickupWeapon = false;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void FixedUpdate()
     {
         timerShoot += Time.deltaTime;
         if (Input.GetButton("Fire1") && timerShoot > timeBetweenShoot && isPickupWeapon && spawnBullet != null && bullet != null)
         {
+            audioSource.Play();
             Instantiate(bullet, spawnBullet.transform.position, spawnBullet.transform.rotation);
             timerShoot = 0f;
         }
