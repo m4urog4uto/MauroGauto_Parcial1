@@ -11,7 +11,7 @@ public class RadioSpawner : MonoBehaviour
     [SerializeField] Fade fadeAnimator;
 
     private int totalRadioEnemies;
-    private int currentRadioEnemies;
+    private int currentRadiosDestroyed = 0;
 
     public int TotalRadiosEnemies => totalRadioEnemies;
 
@@ -26,9 +26,9 @@ public class RadioSpawner : MonoBehaviour
         {
             for (int i = 0; i < radioEnemies.Count; i++)
             {
-                if (radioEnemies[0] == null)
+                if (radioEnemies[i] == null)
                 {
-                    currentRadioEnemies += 1;
+                    currentRadiosDestroyed += 1;
                     radioEnemies.RemoveAt(i);
                 }
             }
@@ -40,10 +40,7 @@ public class RadioSpawner : MonoBehaviour
         }
     }
 
-    public int CurrentRadios()
-    {
-        return currentRadioEnemies;
-    }
+    public int CurrentRadiosDestroyed => currentRadiosDestroyed;
 
     public int TotalRadios(int totalRadios)
     {

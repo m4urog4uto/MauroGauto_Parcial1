@@ -13,6 +13,7 @@ TagManager:
   - PickupLive
   - RadioEnemy
   - CounterC4
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,6 @@ public class RadioEnemiesTxt : MonoBehaviour
 
     void Update()
     {
-        radioEnemiesTx.text = $"Radios Destruidas: {radiosSpawners.CurrentRadios()}/{radiosSpawners.TotalRadiosEnemies}";
+        radioEnemiesTx.text = $"Radios Destruidas: {radiosSpawners.CurrentRadiosDestroyed}/{radiosSpawners.TotalRadiosEnemies}";
     }
 }

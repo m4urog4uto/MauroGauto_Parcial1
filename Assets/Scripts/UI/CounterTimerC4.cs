@@ -49,6 +49,7 @@ public class CounterTimerC4 : MonoBehaviour
         if (currentTime == 0)
         {
             audioSource.Stop();
+            SetTimerActive(false);
             currentTime = 15f;
             timerText.text = "";
             isTimerActive = false;
