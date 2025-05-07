@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Lose/Styles.uss?fileID=7433441132597879392&amp;guid=90b97eb6aa482704c995f3de3fd5adec&amp;type=3#Styles" />
+    <ui:VisualElement name="container" style="flex-grow: 1; align-items: flex-end;">
+        <ui:VisualElement name="right" style="flex-grow: 1; width: 30%; background-color: rgba(0, 0, 0, 0.59); justify-content: space-between;">
+            <ui:VisualElement name="title" style="flex-grow: 0; height: 300px; justify-content: center; align-items: center; color: rgb(255, 54, 54);">
+                <ui:Label tabindex="-1" text="Perdiste" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="false" style="font-size: 60px; -unity-font-definition: initial; -unity-font: url(&quot;project://database/Assets/Fonts/SFTransRobotics.ttf?fileID=12800000&amp;guid=6bc4494465d7b3c4c9d5a4a1598ac2f4&amp;type=3#SFTransRobotics&quot;); height: 62px; width: 265px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="button" style="flex-grow: 0; height: 300px; justify-content: center;">
+                <ui:Button text="Reiniciar" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="button-restart" class="button" style="flex-direction: row-reverse;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="footer" style="flex-grow: 0; height: 300px; justify-content: center; align-items: center; color: rgb(255, 54, 54);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

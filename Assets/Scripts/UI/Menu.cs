@@ -1,19 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class Menu : MonoBehaviour
 {
+    [SerializeField] UIDocument uiDocument;
+
+    void OnEnable()
+    {
+        var root = uiDocument.rootVisualElement;
+
+        Button playerButton = root.Q<Button>("button-start");
+
+        playerButton.clicked += () => ChangeScene("Level1");
+    }
+
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-    }
-
-    public void ExitScene()
-    {
-        #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #else        
-        Application.Quit();
-        #endif
     }
 }

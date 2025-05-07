@@ -1,0 +1,17 @@
+VisualElement {
+}
+
+.button {
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(56, 56, 56);
+    -unity-font-definition: initial;
+    -unity-font: url("project://database/Assets/Fonts/SFTransRobotics.ttf?fileID=12800000&guid=6bc4494465d7b3c4c9d5a4a1598ac2f4&type=3#SFTransRobotics");
+    -unity-text-align: upper-center;
+}
+
+.button:hover {
+    font-size: 50px;
+    background-color: rgb(119, 190, 28);
+    width: auto;
+}
