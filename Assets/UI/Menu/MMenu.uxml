@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/Styles.uss?fileID=7433441132597879392&amp;guid=2270df6d0ef063743b05cd30af1dd5be&amp;type=3#Styles" />
+    <Style src="project://database/Assets/UI/Menu/Styles.uss?fileID=7433441132597879392&amp;guid=2270df6d0ef063743b05cd30af1dd5be&amp;type=3#Styles" />
     <ui:VisualElement name="container" class="container" style="flex-grow: 1; flex-direction: row; justify-content: flex-start;">
         <ui:VisualElement name="left" tabindex="1" class="right" style="flex-grow: 0; min-width: 500px; max-width: 400px; height: 100%; background-color: rgba(0, 0, 0, 0.6); justify-content: space-between;">
             <ui:VisualElement name="logo" class="logo" style="flex-grow: 0; height: 200px; width: 490px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); justify-content: center;">
@@ -8,8 +8,9 @@
             <ui:VisualElement name="buttons" class="buttons" style="flex-grow: 0; height: 100px; width: 100%;">
                 <ui:Button text="Iniciar Juego" parse-escape-sequences="true" display-tooltip-when-elided="true" name="button-start" class="button-menu" style="margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; -unity-font-definition: initial; -unity-font: url(&quot;project://database/Assets/Fonts/SFTransRobotics.ttf?fileID=12800000&amp;guid=6bc4494465d7b3c4c9d5a4a1598ac2f4&amp;type=3#SFTransRobotics&quot;); font-size: 40px;" />
             </ui:VisualElement>
-            <ui:VisualElement name="footer" class="footer" style="flex-grow: 0; height: 100px;">
-                <ui:Label tabindex="-1" text="Desarrollado por Mauro Gauto" parse-escape-sequences="true" display-tooltip-when-elided="true" style="justify-content: center; align-self: center; color: rgb(255, 255, 255);" />
+            <ui:VisualElement name="footer" class="footer" style="flex-grow: 0; height: 100px; justify-content: center; align-items: center;">
+                <ui:Label tabindex="-1" text="Version 1.7" parse-escape-sequences="true" display-tooltip-when-elided="true" name="version" style="justify-content: flex-start; align-items: center; width: 102px; color: rgb(255, 255, 255); font-size: 20px;" />
+                <ui:Label tabindex="-1" text="Desarrollado por Mauro Gauto" parse-escape-sequences="true" display-tooltip-when-elided="true" name="developer" style="justify-content: center; align-self: center; color: rgb(255, 255, 255);" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

@@ -9,6 +9,6 @@ public class LivesText : MonoBehaviour
 
     void Update()
     {
-        livesText.text = $"Vidas: {GameManager.Instance.Lives}";
+        livesText.text = $"x{GameManager.Instance.Lives}";
     }
 }

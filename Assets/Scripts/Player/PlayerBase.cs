@@ -16,6 +16,7 @@ public class PlayerBase : MonoBehaviour
     float health = 100f;
     public float Health => health;
     float protection = 0f;
+    public float Protection => protection;
 
     float _posV;
     float _posH;
@@ -98,7 +99,8 @@ public class PlayerBase : MonoBehaviour
         }
     }
 
-    public float GetProtection() {
+    public float GetProtection()
+    {
         if (protection <= 0)
         {
             return protection = 0;
@@ -106,7 +108,8 @@ public class PlayerBase : MonoBehaviour
         else
         {
             return protection;
-        }; 
+        }
+        ;
     }
 
     public void RestoreHealth()
