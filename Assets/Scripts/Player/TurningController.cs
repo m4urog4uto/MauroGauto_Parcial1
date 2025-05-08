@@ -6,7 +6,7 @@ public class TurningController : MonoBehaviour
     float camRayLenght = 100f;
 
     Ray camRay;
-    RaycastHit floorHit;
+    RaycastHit raycastHit;
     Vector3 playerToMouse;
 
     void FixedUpdate()
@@ -18,17 +18,17 @@ public class TurningController : MonoBehaviour
     {
         camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(camRay, out floorHit, camRayLenght, floorMask))
+        if (Physics.Raycast(camRay, out raycastHit, camRayLenght, floorMask))
         {
-            if (floorHit.collider.CompareTag("Enemy"))
+            if (raycastHit.collider.CompareTag("Enemy") || raycastHit.collider.CompareTag("RadioEnemy"))
             {
-                Vector3 direction = (floorHit.transform.position - transform.position).normalized;
+                Vector3 direction = (raycastHit.transform.position - transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y - 28f, 0f);
             }
             else
             {
-                playerToMouse = floorHit.point - transform.position;
+                playerToMouse = raycastHit.point - transform.position;
                 playerToMouse.y = 0f;
 
                 Quaternion newRotation = Quaternion.LookRotation(playerToMouse, Vector3.up);

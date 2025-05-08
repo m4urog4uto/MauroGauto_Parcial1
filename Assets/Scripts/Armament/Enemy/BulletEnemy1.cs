@@ -17,7 +17,6 @@ public class BulletEnemy1 : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        // TODO: Refactor
         if (collision.gameObject.tag == "Player")
         {
             if (hasCollided) return;
